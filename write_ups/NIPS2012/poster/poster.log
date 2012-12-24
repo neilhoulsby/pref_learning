@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.11.12)  27 NOV 2012 21:01
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.26)  24 DEC 2012 17:43
 entering extended mode
  %&-line parsing enabled.
 **poster.tex
@@ -14,18 +14,18 @@ orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
 rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf/tex/latex/beamer/base/beamer.cls
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasercs.sty
-Package: beamerbasercs 2007/01/28 (rcs-revision 1.4)
+Package: beamerbasercs 2010/06/12 (rcs-revision c3821710bb40)
 )
-Document Class: beamer 2007/03/11 cvs version 3.07 A class for typesetting pres
-entations (rcs-revision 1.70)
+Document Class: beamer 2010/06/21 development version 3.10 A class for typesett
+ing presentations (rcs-revision a6b1a8434d30)
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasemodes.sty
-Package: beamerbasemodes 2007/01/28 (rcs-revision 1.22)
+Package: beamerbasemodes 2010/05/01 (rcs-revision efa082c6111d)
 \beamer@tempbox=\box26
 \beamer@tempcount=\count79
 \c@beamerpauses=\count80
 
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasedecode.sty
-Package: beamerbasedecode 2007/01/28 (rcs-revision 1.20)
+Package: beamerbasedecode 2010/05/01 (rcs-revision efa082c6111d)
 \beamer@slideinframe=\count81
 \beamer@minimum=\count82
 )
@@ -76,12 +76,39 @@ Package: beamerbasedecode 2007/01/28 (rcs-revision 1.20)
 \beamer@tocsectionnumber=\count101
 
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaseoptions.sty
-Package: beamerbaseoptions 2007/01/28 (rcs-revision 1.8)
+Package: beamerbaseoptions 2010/04/27 (rcs-revision 982469101dd6)
 
 (/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 ))
+\beamer@paperwidth=\skip42
+\beamer@paperheight=\skip43
+
+(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
+Package: geometry 2008/12/21 v4.2 Page Geometry
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen119
+\Gm@wd@mp=\dimen120
+\Gm@odd@mp=\dimen121
+\Gm@even@mp=\dimen122
+\Gm@dimlist=\toks15
+
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
+(/usr/share/texmf-texlive/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
@@ -98,56 +125,66 @@ File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
-\Gread@gobject=\count102
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+\Gread@gobject=\count105
 ))
-\Gin@req@height=\dimen119
-\Gin@req@width=\dimen120
+\Gin@req@height=\dimen123
+\Gin@req@width=\dimen124
 )
 (/usr/share/texmf/tex/latex/pgf/systemlayer/pgfsys.sty
 (/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks15
+\pgfutil@everybye=\toks16
 )
-(/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box34
+
+(/usr/share/texmf-texlive/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfrcs.code.tex
-Package: pgfrcs 2008/02/20 v2.00 (rcs-revision 1.21)
+Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
 ))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2008/02/07 v2.00 (rcs-revision 1.31)
+Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks16
-\pgfkeys@temptoks=\toks17
-)
-\pgf@x=\dimen121
-\pgf@y=\dimen122
-\pgf@xa=\dimen123
-\pgf@ya=\dimen124
-\pgf@xb=\dimen125
-\pgf@yb=\dimen126
-\pgf@xc=\dimen127
-\pgf@yc=\dimen128
-\c@pgf@counta=\count103
-\c@pgf@countb=\count104
-\c@pgf@countc=\count105
-\c@pgf@countd=\count106
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks19
+))
+\pgf@x=\dimen125
+\pgf@y=\dimen126
+\pgf@xa=\dimen127
+\pgf@ya=\dimen128
+\pgf@xb=\dimen129
+\pgf@yb=\dimen130
+\pgf@xc=\dimen131
+\pgf@yc=\dimen132
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count106
+\c@pgf@countb=\count107
+\c@pgf@countc=\count108
+\c@pgf@countd=\count109
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2008/01/13  (rcs-revision 1.6)
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
-Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 885.
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2007/12/20  (rcs-revision 1.20)
+File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2007/12/17  (rcs-revision 1.8)
+File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
 )))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2008/01/23  (rcs-revision 1.6)
-\pgfsyssoftpath@smallbuffer@items=\count107
-\pgfsyssoftpath@bigbuffer@items=\count108
+File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+\pgfsyssoftpath@smallbuffer@items=\count110
+\pgfsyssoftpath@bigbuffer@items=\count111
 )
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -170,140 +207,112 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2008/01/15 v2.00 (rcs-revision 1.6)
+Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 
 (/usr/share/texmf/tex/generic/pgf/math/pgfmath.code.tex
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathcalc.code.tex
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex
-\pgfmath@box=\box34
-)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@stack=\toks18
-\c@pgfmath@parsecounta=\count109
-\c@pgfmath@parsecountb=\count110
-\c@pgfmath@parsecountc=\count111
-\pgfmath@parsex=\dimen129
+\pgfmath@dimen=\dimen133
+\pgfmath@count=\count112
+\pgfmath@box=\box35
+\pgfmath@toks=\toks20
+\pgfmath@stack@operand=\toks21
+\pgfmath@stack@operation=\toks22
 )
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathoperations.code.tex
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathtrig.code.tex)
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathrnd.code.tex))
-(/usr/share/texmf/tex/generic/pgf/math/pgfmathbase.code.tex)))
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count113
+))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2008/02/03  (rcs-revision 1.13)
-\pgf@picminx=\dimen130
-\pgf@picmaxx=\dimen131
-\pgf@picminy=\dimen132
-\pgf@picmaxy=\dimen133
-\pgf@pathminx=\dimen134
-\pgf@pathmaxx=\dimen135
-\pgf@pathminy=\dimen136
-\pgf@pathmaxy=\dimen137
-\pgf@xx=\dimen138
-\pgf@xy=\dimen139
-\pgf@yx=\dimen140
-\pgf@yy=\dimen141
-\pgf@zx=\dimen142
-\pgf@zy=\dimen143
+File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
+\pgf@picminx=\dimen134
+\pgf@picmaxx=\dimen135
+\pgf@picminy=\dimen136
+\pgf@picmaxy=\dimen137
+\pgf@pathminx=\dimen138
+\pgf@pathmaxx=\dimen139
+\pgf@pathminy=\dimen140
+\pgf@pathmaxy=\dimen141
+\pgf@xx=\dimen142
+\pgf@xy=\dimen143
+\pgf@yx=\dimen144
+\pgf@yy=\dimen145
+\pgf@zx=\dimen146
+\pgf@zy=\dimen147
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2008/02/13  (rcs-revision 1.14)
-\pgf@path@lastx=\dimen144
-\pgf@path@lasty=\dimen145
+File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
+\pgf@path@lastx=\dimen148
+\pgf@path@lasty=\dimen149
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2008/01/23  (rcs-revision 1.11)
-\pgf@shorten@end@additional=\dimen146
-\pgf@shorten@start@additional=\dimen147
+File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
+\pgf@shorten@end@additional=\dimen150
+\pgf@shorten@start@additional=\dimen151
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2008/01/15  (rcs-revision 1.26)
-\pgfpic=\box35
-\pgf@hbox=\box36
-\pgf@layerbox@main=\box37
-\pgf@picture@serial@count=\count112
+File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+\pgfpic=\box36
+\pgf@hbox=\box37
+\pgf@layerbox@main=\box38
+\pgf@picture@serial@count=\count114
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2007/12/12  (rcs-revision 1.8)
-\pgflinewidth=\dimen148
+File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
+\pgflinewidth=\dimen152
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
-File: pgfcoretransformations.code.tex 2008/02/04  (rcs-revision 1.10)
-\pgf@pt@x=\dimen149
-\pgf@pt@y=\dimen150
-\pgf@pt@temp=\dimen151
+File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
+\pgf@pt@x=\dimen153
+\pgf@pt@y=\dimen154
+\pgf@pt@temp=\dimen155
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2006/10/11  (rcs-revision 1.2)
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2008/01/23  (rcs-revision 1.7)
+File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2007/06/07  (rcs-revision 1.8)
+File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2007/12/10  (rcs-revision 1.9)
-\pgf@max=\dimen152
-\pgf@sys@shading@range@num=\count113
+File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
+\pgf@max=\dimen156
+\pgf@sys@shading@range@num=\count115
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2008/01/15  (rcs-revision 1.1)
-\pgfexternal@startupbox=\box38
-)
+File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+\pgfexternal@startupbox=\box39
+))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2008/01/15  (rcs-revision 1.1)
+File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
 File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2008/01/15  (rcs-revision 1.1)
+File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
 )))
-(/usr/share/texmf/tex/latex/pgf/basiclayer/pgfbaseimage.sty
-
-Package pgf Warning: This package is obsolete and no longer needed on input lin
-e 13.
-
-) (/usr/share/texmf/tex/latex/pgf/utilities/xxcolor.sty
+(/usr/share/texmf/tex/latex/pgf/utilities/xxcolor.sty
 Package: xxcolor 2003/10/24 ver 0.1
-\XC@nummixins=\count114
-\XC@countmixins=\count115
+\XC@nummixins=\count116
+\XC@countmixins=\count117
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2009/06/22 v3.00
-
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
-\@emptytoks=\toks19
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
-))
-(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
-Package: geometry 2008/12/21 v4.2 Page Geometry
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in pdf mode detected.
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
-Package ifvtex Info: VTeX not detected.
-)
-\Gm@cnth=\count116
-\Gm@cntv=\count117
-\c@Gm@tempcnt=\count118
-\Gm@bindingoffset=\dimen153
-\Gm@wd@mp=\dimen154
-\Gm@odd@mp=\dimen155
-\Gm@even@mp=\dimen156
-\Gm@dimlist=\toks20
-
-(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
 (/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
 
@@ -318,8 +327,8 @@ O)
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
 \@linkdim=\dimen157
-\Hy@linkcounter=\count119
-\Hy@pagecounter=\count120
+\Hy@linkcounter=\count118
+\Hy@pagecounter=\count119
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -388,10 +397,10 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count121
+\Fld@menulength=\count120
 \Field@Width=\dimen158
 \Fld@charsize=\dimen159
-\Field@toks=\toks21
+\Field@toks=\toks23
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
 Package hyperref Info: Hyper index ON on input line 4385.
@@ -403,9 +412,7 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-
-Package hyperref Warning: Option `pdfpagelabels' is turned off
-(hyperref)                because \thepage is undefined.
+\Hy@abspage=\count121
 
 Hyperref stopped early
 )
@@ -414,32 +421,50 @@ Hyperref stopped early
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \Fld@listcount=\count122
 )
-(/usr/share/texmf-texlive/tex/latex/base/size11.clo
-File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
-)
+(/usr/share/texmf/tex/latex/beamer/base/beamerbaserequires.sty
+Package: beamerbaserequires 2010/05/01  (rcs-revision efa082c6111d)
+
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasecompatibility.sty
-Package: beamerbasecompatibility 2007/01/28  (rcs-revision 1.63)
+Package: beamerbasecompatibility 2010/07/12  (rcs-revision 6648c3177e4e)
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasefont.sty
-Package: beamerbasefont 2007/01/28  (rcs-revision 1.16)
-)
-(/usr/share/texmf/tex/latex/beamer/base/beamerbasemisc.sty
-Package: beamerbasemisc 2007/01/28  (rcs-revision 1.24)
+Package: beamerbasefont 2010/05/10  (rcs-revision cd36e8a33c6b)
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks24
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+)))
+(/usr/share/texmf/tex/latex/beamer/base/beamerbasetranslator.sty
+Package: beamerbasetranslator 2010/06/11  (rcs-revision 85fd1cc7fc42)
+
+(/usr/share/texmf/tex/latex/beamer/base/translator/translator.sty
+Package: translator 2010/06/12 ver 1.10
+
+(/usr/share/texmf/tex/latex/beamer/base/translator/translator-language-mappings
+.tex))) (/usr/share/texmf/tex/latex/beamer/base/beamerbasemisc.sty
+Package: beamerbasemisc 2010/06/06  (rcs-revision bff0a9294b45)
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasetwoscreens.sty
-Package: beamerbasetwoscreens 2007/01/28  (rcs-revision 1.7)
+Package: beamerbasetwoscreens 2010/05/01  (rcs-revision efa082c6111d)
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaseoverlay.sty
-Package: beamerbaseoverlay 2007/01/28  (rcs-revision 1.50)
+Package: beamerbaseoverlay 2010/05/07  (rcs-revision 5584dad462a9)
 \beamer@argscount=\count123
-\beamer@lastskipcover=\skip42
+\beamer@lastskipcover=\skip44
 \beamer@trivlistdepth=\count124
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasetitle.sty
-Package: beamerbasetitle 2007/01/28  (rcs-revision 1.25)
+Package: beamerbasetitle 2010/06/12  (rcs-revision 717e481ca47a)
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasesection.sty
-Package: beamerbasesection 2007/01/28  (rcs-revision 1.21)
+Package: beamerbasesection 2010/06/17  (rcs-revision e0d9401bb743)
 \c@lecture=\count125
 \c@part=\count126
 \c@section=\count127
@@ -447,61 +472,61 @@ Package: beamerbasesection 2007/01/28  (rcs-revision 1.21)
 \c@subsubsection=\count129
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaseframe.sty
-Package: beamerbaseframe 2007/01/28  (rcs-revision 1.60)
-\beamer@framebox=\box39
-\beamer@frametitlebox=\box40
-\beamer@zoombox=\box41
+Package: beamerbaseframe 2010/06/06  (rcs-revision bff0a9294b45)
+\beamer@framebox=\box40
+\beamer@frametitlebox=\box41
+\beamer@zoombox=\box42
 \beamer@zoomcount=\count130
 \beamer@zoomframecount=\count131
 \beamer@frametextheight=\dimen160
 \c@subsectionslide=\count132
-\beamer@frametopskip=\skip43
-\beamer@framebottomskip=\skip44
-\beamer@frametopskipautobreak=\skip45
-\beamer@framebottomskipautobreak=\skip46
-\beamer@envbody=\toks22
+\beamer@frametopskip=\skip45
+\beamer@framebottomskip=\skip46
+\beamer@frametopskipautobreak=\skip47
+\beamer@framebottomskipautobreak=\skip48
+\beamer@envbody=\toks25
 \c@framenumber=\count133
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaseverbatim.sty
-Package: beamerbaseverbatim 2007/01/28  (rcs-revision 1.8)
-\beamer@verbatimfileout=\write3
+Package: beamerbaseverbatim 2010/05/01  (rcs-revision efa082c6111d)
+\beamer@verbatimfileout=\write4
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaseframesize.sty
-Package: beamerbaseframesize 2007/01/28  (rcs-revision 1.18)
-\beamer@splitbox=\box42
+Package: beamerbaseframesize 2010/06/27  (rcs-revision 6baa2d92e6f1)
+\beamer@splitbox=\box43
 \beamer@autobreakcount=\count134
 \beamer@autobreaklastheight=\dimen161
-\beamer@frametitletoks=\toks23
-\beamer@framesubtitletoks=\toks24
+\beamer@frametitletoks=\toks26
+\beamer@framesubtitletoks=\toks27
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaseframecomponents.sty
-Package: beamerbaseframecomponents 2007/01/28  (rcs-revision 1.41)
-\beamer@footins=\box43
+Package: beamerbaseframecomponents 2010/07/12  (rcs-revision 09e82992d9b1)
+\beamer@footins=\box44
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasecolor.sty
-Package: beamerbasecolor 2007/01/28  (rcs-revision 1.42)
+Package: beamerbasecolor 2010/06/06  (rcs-revision d1a9b48be06d)
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasenotes.sty
-Package: beamerbasenotes 2007/01/28  (rcs-revision 1.23)
-\beamer@frameboxcopy=\box44
+Package: beamerbasenotes 2010/05/01  (rcs-revision efa082c6111d)
+\beamer@frameboxcopy=\box45
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasetoc.sty
-Package: beamerbasetoc 2007/01/28  (rcs-revision 1.21)
+Package: beamerbasetoc 2010/06/11  (rcs-revision 242ecaa6783b)
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasetemplates.sty
-Package: beamerbasetemplates 2007/01/28  (rcs-revision 1.51)
-\beamer@sbttoks=\toks25
+Package: beamerbasetemplates 2010/05/01  (rcs-revision efa082c6111d)
+\beamer@sbttoks=\toks28
 
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaseauxtemplates.sty
-Package: beamerbaseauxtemplates 2007/01/28  (rcs-revision 1.28)
+Package: beamerbaseauxtemplates 2010/05/01  (rcs-revision efa082c6111d)
 
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaseboxes.sty
-Package: beamerbaseboxes 2007/03/11  (rcs-revision 1.32)
-\bmb@box=\box45
-\bmb@colorbox=\box46
-\bmb@boxshadow=\box47
-\bmb@boxshadowball=\box48
-\bmb@boxshadowballlarge=\box49
+Package: beamerbaseboxes 2010/05/01  (rcs-revision efa082c6111d)
+\bmb@box=\box46
+\bmb@colorbox=\box47
+\bmb@boxshadow=\box48
+\bmb@boxshadowball=\box49
+\bmb@boxshadowballlarge=\box50
 \bmb@temp=\dimen162
 \bmb@dima=\dimen163
 \bmb@dimb=\dimen164
@@ -510,30 +535,26 @@ Package: beamerbaseboxes 2007/03/11  (rcs-revision 1.32)
 \beamer@blockheadheight=\dimen166
 ))
 (/usr/share/texmf/tex/latex/beamer/base/beamerbaselocalstructure.sty
-Package: beamerbaselocalstructure 2007/01/28  (rcs-revision 1.53)
+Package: beamerbaselocalstructure 2010/06/01  (rcs-revision 81f9e33f7cc2)
 
 (/usr/share/texmf-texlive/tex/latex/tools/enumerate.sty
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
-\@enLab=\toks26
+\@enLab=\toks29
 )
 \c@figure=\count135
 \c@table=\count136
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasenavigation.sty
-Package: beamerbasenavigation 2007/01/28  (rcs-revision 1.36)
+Package: beamerbasenavigation 2010/05/01  (rcs-revision efa082c6111d)
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasetheorems.sty
-Package: beamerbasetheorems 2007/01/28  (rcs-revision 1.10)
+Package: beamerbasetheorems 2010/06/06  (rcs-revision 7e7cc5e53e9d)
 
-(/usr/share/texmf-texlive/tex/latex/translator/translator.sty
-Package: translator 2007/03/11 ver 1.00
-
-(/usr/share/texmf-texlive/tex/latex/translator/translator-language-mappings.tex
-)) (/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
-\@mathmargin=\skip49
+\@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
@@ -541,7 +562,7 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks27
+\@emptytoks=\toks30
 \ex@=\dimen167
 ))
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
@@ -561,8 +582,8 @@ LaTeX Info: Redefining \overline on input line 307.
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
-\Mathstrutbox@=\box50
-\strutbox@=\box51
+\Mathstrutbox@=\box51
+\strutbox@=\box52
 \big@size=\dimen169
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
@@ -571,59 +592,61 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \dotsspace@=\muskip11
 \c@parentequation=\count144
 \dspbrk@lvl=\count145
-\tag@help=\toks28
+\tag@help=\toks31
 \row@=\count146
 \column@=\count147
 \maxfields@=\count148
-\andhelp@=\toks29
+\andhelp@=\toks32
 \eqnshift@=\dimen170
 \alignsep@=\dimen171
 \tagshift@=\dimen172
 \tagwidth@=\dimen173
 \totwidth@=\dimen174
 \lineht@=\dimen175
-\@envbody=\toks30
-\multlinegap=\skip50
-\multlinetaggap=\skip51
-\mathdisplay@stack=\toks31
+\@envbody=\toks33
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks34
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
 (/usr/share/texmf-texlive/tex/latex/amscls/amsthm.sty
 Package: amsthm 2004/08/06 v2.20
-\thm@style=\toks32
-\thm@bodyfont=\toks33
-\thm@headfont=\toks34
-\thm@notefont=\toks35
-\thm@headpunct=\toks36
-\thm@preskip=\skip52
-\thm@postskip=\skip53
-\thm@headsep=\skip54
-\dth@everypar=\toks37
+\thm@style=\toks35
+\thm@bodyfont=\toks36
+\thm@headfont=\toks37
+\thm@notefont=\toks38
+\thm@headpunct=\toks39
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks40
 )
 \c@theorem=\count149
 )
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasethemes.sty
-Package: beamerbasethemes 2007/01/28  (rcs-revision 1.10)
-)
-(/usr/share/texmf/tex/latex/beamer/themes/theme/beamerthemedefault.sty
-Package: beamerthemedefault 2007/01/28  (rcs-revision 1.7)
+Package: beamerbasethemes 2010/05/01  (rcs-revision efa082c6111d)
+))
+(/usr/share/texmf/tex/latex/beamer/base/themes/theme/beamerthemedefault.sty
+Package: beamerthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
 
-(/usr/share/texmf/tex/latex/beamer/themes/font/beamerfontthemedefault.sty
-Package: beamerfontthemedefault 2007/01/28  (rcs-revision 1.13)
+(/usr/share/texmf/tex/latex/beamer/base/themes/font/beamerfontthemedefault.sty
+Package: beamerfontthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
 )
-(/usr/share/texmf/tex/latex/beamer/themes/color/beamercolorthemedefault.sty
-Package: beamercolorthemedefault 2007/01/28  (rcs-revision 1.28)
+(/usr/share/texmf/tex/latex/beamer/base/themes/color/beamercolorthemedefault.st
+y
+Package: beamercolorthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
 )
-(/usr/share/texmf/tex/latex/beamer/themes/inner/beamerinnerthemedefault.sty
-Package: beamerinnerthemedefault 2007/01/28  (rcs-revision 1.20)
+(/usr/share/texmf/tex/latex/beamer/base/themes/inner/beamerinnerthemedefault.st
+y
+Package: beamerinnerthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
 \beamer@dima=\dimen176
 \beamer@dimb=\dimen177
 )
-(/usr/share/texmf/tex/latex/beamer/themes/outer/beamerouterthemedefault.sty
-Package: beamerouterthemedefault 2007/01/28  (rcs-revision 1.14)
-)))
-(./beamerposter.sty
+(/usr/share/texmf/tex/latex/beamer/base/themes/outer/beamerouterthemedefault.st
+y
+Package: beamerouterthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
+))) (./beamerposter.sty
 Package: 2008/03/11. v.1.07. beamerposter: latex-beamer poster extension
 Package: beamerposter 2008/03/11. v.1.07. beamerposter: latex-beamer poster ext
 ension
@@ -631,8 +654,8 @@ ension
 Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
 
 (/usr/share/texmf-texlive/tex/generic/xkeyval/xkeyval.tex
-\XKV@toks=\toks38
-\XKV@tempa@toks=\toks39
+\XKV@toks=\toks41
+\XKV@tempa@toks=\toks42
 \XKV@depth=\count150
 File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
 ))
@@ -711,44 +734,46 @@ Package: fp-eval 1995/04/03
 ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL )
 ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL )
 ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ))
-\sepwid=\skip55
-\onecolwid=\skip56
-\twocolwid=\skip57
-\threecolwid=\skip58
+\sepwid=\skip57
+\onecolwid=\skip58
+\twocolwid=\skip59
+\threecolwid=\skip60
  (./beamerthemeconfposter.sty
 Package: beamerthemeconfposter 
 (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
-Package: pgf 2008/01/15 v2.00 (rcs-revision 1.12)
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2008/02/13  (rcs-revision 1.4)
-\pgfnodeparttextbox=\box52
-\toks@savedmacro=\toks40
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box53
 )
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2008/01/15  (rcs-revision 1.1)
-\pgf@plotwrite=\write4
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2007/07/03 v2.00 (rcs-revision 1.7)
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
 \pgf@nodesepstart=\dimen178
 \pgf@nodesepend=\dimen179
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2007/07/23 v2.00 (rcs-revision 1.1)
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
 ))
 (/usr/share/texmf/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texmf/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
 (/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2007/11/07 v2.00 (rcs-revision 1.8)
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
 \pgffor@iter=\dimen180
 \pgffor@skip=\dimen181
+\pgffor@stack=\toks43
+\pgffor@toks=\toks44
 ))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2008/02/13 v2.00 (rcs-revision 1.27)
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
-File: pgflibraryplothandlers.code.tex 2007/03/09 v2.00 (rcs-revision 1.9)
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
 \pgf@plot@mark@count=\count162
 \pgfplotmarksize=\dimen182
 )
@@ -758,15 +783,15 @@ File: pgflibraryplothandlers.code.tex 2007/03/09 v2.00 (rcs-revision 1.9)
 \tikz@lastysaved=\dimen186
 \tikzleveldistance=\dimen187
 \tikzsiblingdistance=\dimen188
-\tikz@figbox=\box53
-\tikz@tempbox=\box54
+\tikz@figbox=\box54
+\tikz@tempbox=\box55
 \tikztreelevel=\count163
 \tikznumberofchildren=\count164
 \tikznumberofcurrentchild=\count165
 \tikz@fig@count=\count166
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2008/01/15  (rcs-revision 1.1)
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
 \pgfmatrixcurrentrow=\count167
 \pgfmatrixcurrentcolumn=\count168
 \pgf@matrix@numberofcolumns=\count169
@@ -775,20 +800,21 @@ File: pgfmodulematrix.code.tex 2008/01/15  (rcs-revision 1.1)
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
-File: tikzlibrarytopaths.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 )))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrow
 s.code.tex
-File: tikzlibraryarrows.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
+File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2007/06/07 v2.00 (rcs-revision 1.7)
+File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
+\arrowsize=\dimen189
 ))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackg
 rounds.code.tex
-File: tikzlibrarybackgrounds.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
-\pgf@layerbox@background=\box55
-\pgf@layerboxsaved@background=\box56
+File: tikzlibrarybackgrounds.code.tex 2010/02/08 v2.10 (rcs-revision 1.2)
+\pgf@layerbox@background=\box56
+\pgf@layerboxsaved@background=\box57
 ) (/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
@@ -898,33 +924,34 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
 )
-(/usr/share/texmf/tex/latex/beamer/themes/font/beamerfontthemeprofessionalfonts
-.sty
-Package: beamerfontthemeprofessionalfonts 2007/01/28  (rcs-revision 1.3)
+(/usr/share/texmf/tex/latex/beamer/base/themes/font/beamerfontthemeprofessional
+fonts.sty
+Package: beamerfontthemeprofessionalfonts 2010/06/17  (rcs-revision d02a7cf4d8a
+e)
 ) (/usr/share/texmf-texlive/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 
 (/usr/share/texmf-texlive/tex/latex/ms/everysel.sty
 Package: everysel 1999/06/08 v1.03 EverySelectfont Package (MS)
 )
-\CenteringLeftskip=\skip59
-\RaggedLeftLeftskip=\skip60
-\RaggedRightLeftskip=\skip61
-\CenteringRightskip=\skip62
-\RaggedLeftRightskip=\skip63
-\RaggedRightRightskip=\skip64
-\CenteringParfillskip=\skip65
-\RaggedLeftParfillskip=\skip66
-\RaggedRightParfillskip=\skip67
-\JustifyingParfillskip=\skip68
-\CenteringParindent=\skip69
-\RaggedLeftParindent=\skip70
-\RaggedRightParindent=\skip71
-\JustifyingParindent=\skip72
+\CenteringLeftskip=\skip61
+\RaggedLeftLeftskip=\skip62
+\RaggedRightLeftskip=\skip63
+\CenteringRightskip=\skip64
+\RaggedLeftRightskip=\skip65
+\RaggedRightRightskip=\skip66
+\CenteringParfillskip=\skip67
+\RaggedLeftParfillskip=\skip68
+\RaggedRightParfillskip=\skip69
+\JustifyingParfillskip=\skip70
+\CenteringParindent=\skip71
+\RaggedLeftParindent=\skip72
+\RaggedRightParindent=\skip73
+\JustifyingParindent=\skip74
 )
-\inboxwd=\skip73
-\iinboxwd=\skip74
-\inboxrule=\skip75
+\inboxwd=\skip75
+\iinboxwd=\skip76
+\inboxrule=\skip77
 )
 (/usr/share/texmf-texlive/tex/latex/base/exscale.sty
 Package: exscale 2007/10/29 v2.1h Standard LaTeX package exscale
@@ -933,7 +960,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> OMX/cmex/m/n on input line 52.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> OMX/cmex/m/n on input line 52.
-\big@size=\dimen189
+\big@size=\dimen190
 )
 (/usr/share/texmf-texlive/tex/latex/tools/bm.sty
 Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
@@ -948,10 +975,10 @@ Package: pgfplots 2009/02/14 Version 1.2.2
 
 (/usr/share/texmf-texlive/tex/generic/pgfplots/pgfplots.code.tex
 (/usr/share/texmf-texlive/tex/generic/pgfplots/pgfplotscore.code.tex
-\t@pgfplots@toka=\toks41
-\t@pgfplots@tokb=\toks42
-\t@pgfplots@tokc=\toks43
-\pgfplots@tmpa=\dimen190
+\t@pgfplots@toka=\toks45
+\t@pgfplots@tokb=\toks46
+\t@pgfplots@tokc=\toks47
+\pgfplots@tmpa=\dimen191
 )
 (/usr/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsup
 p_loader.code.tex
@@ -961,7 +988,7 @@ Package pgfplots: loading complementary code for your PGF version...
 p_misc.code.tex)
 (/usr/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsup
 p_pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks44
+\pgfkeys@tmptoks=\toks48
 )
 (/usr/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsup
 p_pgfmathfloat.code.tex
@@ -969,16 +996,12 @@ p_pgfmathfloat.code.tex
 )
 (/usr/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsup
 p_pgflibraryplothandlers.code.tex
-File: pgfplotsoldpgfsupp_pgflibraryplothandlers.code.tex 2009/02/13 v2.00 (rcs-
+File: pgfplotsoldpgfsupp_pgflibraryplothandlers.code.tex 2009/02/13 v2.10 (rcs-
 revision 1.7)
 \pgf@plot@mark@count=\count172
-\pgfplotmarksize=\dimen191
+\pgfplotmarksize=\dimen192
 )
-Package pgfplots: loading FPU library which doesn't appear to exist in your PGF
- version...
-
-(/usr/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsup
-p_pgflibraryfpu.code.tex))
+(/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
 (/usr/share/texmf-texlive/tex/generic/pgfplots/util/pgfplotsutil.code.tex
 (/usr/share/texmf-texlive/tex/generic/pgfplots/liststructure/pgfplotsliststruct
 ure.code.tex)
@@ -1001,45 +1024,47 @@ ode.tex)))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
 ations.code.tex
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen192
-\pgfdecoratedremainingdistance=\dimen193
-\pgfdecoratedinputsegmentcompleteddistance=\dimen194
-\pgfdecoratedinputsegmentremainingdistance=\dimen195
-\pgf@decorate@distancetomove=\dimen196
+\pgfdecoratedcompleteddistance=\dimen193
+\pgfdecoratedremainingdistance=\dimen194
+\pgfdecoratedinputsegmentcompleteddistance=\dimen195
+\pgfdecoratedinputsegmentremainingdistance=\dimen196
+\pgf@decorate@distancetomove=\dimen197
 \pgf@decorate@repeatstate=\count175
-\pgfdecorationsegmentamplitude=\dimen197
-\pgfdecorationsegmentlength=\dimen198
-))
+\pgfdecorationsegmentamplitude=\dimen198
+\pgfdecorationsegmentlength=\dimen199
+)
+\tikz@lib@dec@box=\box58
+)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
 ations.pathmorphing.code.tex
-(/usr/share/texmf/tex/generic/pgf/libraries/pgflibrarydecorations.pathmorphing.
-code.tex))
+(/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.p
+athmorphing.code.tex))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
 ations.pathreplacing.code.tex
-(/usr/share/texmf/tex/generic/pgf/libraries/pgflibrarydecorations.pathreplacing
-.code.tex))
+(/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.p
+athreplacing.code.tex))
 \pgfplots@numplots=\count176
-\pgfplots@xmin@reg=\dimen199
-\pgfplots@xmax@reg=\dimen200
-\pgfplots@ymin@reg=\dimen201
-\pgfplots@ymax@reg=\dimen202
-\pgfplots@zmin@reg=\dimen203
-\pgfplots@zmax@reg=\dimen204
+\pgfplots@xmin@reg=\dimen200
+\pgfplots@xmax@reg=\dimen201
+\pgfplots@ymin@reg=\dimen202
+\pgfplots@ymax@reg=\dimen203
+\pgfplots@zmin@reg=\dimen204
+\pgfplots@zmax@reg=\dimen205
 )
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotm
 arks.code.tex
-File: tikzlibraryplotmarks.code.tex 2008/01/09 v2.00 (rcs-revision 1.1)
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
-File: pgflibraryplotmarks.code.tex 2007/03/09 v2.00 (rcs-revision 1.5)
+File: pgflibraryplotmarks.code.tex 2010/10/15 v2.10 (rcs-revision 1.12)
 )))
 (/usr/share/texmf-texlive/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen205
-\extrarowheight=\dimen206
-\NC@list=\toks45
-\extratabsurround=\skip76
-\backup@length=\skip77
+\col@sep=\dimen206
+\extrarowheight=\dimen207
+\NC@list=\toks49
+\extratabsurround=\skip78
+\backup@length=\skip79
 )
 (/usr/share/texmf-texlive/tex/latex/sidecap/sidecap.sty
 Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
@@ -1047,21 +1072,21 @@ Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
 (/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\SC@BOXWD=\dimen207
-\SC@CAPWD=\dimen208
-\SC@tempdima=\dimen209
-\SC@tempdimb=\dimen210
+\SC@BOXWD=\dimen208
+\SC@CAPWD=\dimen209
+\SC@tempdima=\dimen210
+\SC@tempdimb=\dimen211
 \c@SC@C=\count177
-\SC@BOX=\box57
+\SC@BOX=\box59
 )
 (/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip78
-\subfigcapskip=\skip79
-\subfigcaptopadj=\dimen211
-\subfigbottomskip=\skip80
-\subfigcapmargin=\dimen212
-\subfiglabelskip=\skip81
+\subfigtopskip=\skip80
+\subfigcapskip=\skip81
+\subfigcaptopadj=\dimen212
+\subfigbottomskip=\skip82
+\subfigcapmargin=\dimen213
+\subfiglabelskip=\skip83
 \c@subfigure=\count178
 \c@lofdepth=\count179
 \c@subtable=\count180
@@ -1071,20 +1096,20 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 * Local config file subfigure.cfg used *
 ****************************************
 (/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip82
-\subfig@bottom=\skip83
+\subfig@top=\skip84
+\subfig@bottom=\skip85
 )
 (/usr/share/texmf-texlive/tex/latex/caption/caption.sty
 Package: caption 2009/10/09 v3.1k Customizing captions (AR)
 
 (/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
 Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
-\captionmargin=\dimen213
-\captionmargin@=\dimen214
-\captionwidth=\dimen215
-\caption@indent=\dimen216
-\caption@parindent=\dimen217
-\caption@hangindent=\dimen218
+\captionmargin=\dimen214
+\captionmargin@=\dimen215
+\captionwidth=\dimen216
+\caption@indent=\dimen217
+\caption@parindent=\dimen218
+\caption@hangindent=\dimen219
 )
 \c@ContinuedFloat=\count182
 Package caption Info: beamer document class.
@@ -1127,19 +1152,6 @@ LaTeX Font Info:    Try loading font information for T1+lmss on input line 104.
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-(/usr/share/texmf/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count183
-\scratchdimen=\dimen219
-\scratchbox=\box58
-\nofMPsegments=\count184
-\nofMParguments=\count185
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count186
-\MPscratchDim=\dimen220
-\MPnumerator=\count187
-\everyMPtoPDFconversion=\toks47
-)
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
 -------------------- Geometry parameters
@@ -1181,7 +1193,21 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count183
+\scratchdimen=\dimen220
+\scratchbox=\box60
+\nofMPsegments=\count184
+\nofMParguments=\count185
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count186
+\MPscratchDim=\dimen221
+\MPnumerator=\count187
+\everyMPtoPDFconversion=\toks51
+) ABD: EveryShipout initializing macros
 Package hyperref Info: Link coloring OFF on input line 104.
+
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -1197,10 +1223,30 @@ LaTeX Info: Redefining \pageref on input line 104.
 \@outlinefile=\write6
 \openout6 = `poster.out'.
 
-\AtBeginShipoutBox=\box59
+\AtBeginShipoutBox=\box61
 
-(/usr/share/texmf-texlive/tex/latex/translator/translator-theorem-dictionary-En
-glish.dict
+(/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-basic-dicti
+onary/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-bibliograph
+y-dictionary/translator-bibliography-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-environment
+-dictionary/translator-environment-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-months-dict
+ionary/translator-months-dictionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-numbers-dic
+tionary/translator-numbers-dictionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-theorem-dic
+tionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 LaTeX Info: Redefining \selectfont on input line 104.
@@ -1210,7 +1256,8 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Calculating math sizes for size <11.52> on input line 104.
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 104.
 
- (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 104.
@@ -1363,13 +1410,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 22221 strings out of 493848
- 447923 string characters out of 1152822
- 714363 words of memory out of 3000000
- 24858 multiletter control sequences out of 15000+50000
+ 24119 strings out of 493848
+ 495885 string characters out of 1152823
+ 750466 words of memory out of 3000000
+ 26705 multiletter control sequences out of 15000+50000
  137718 words of font info for 119 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 53i,23n,92p,407b,1272s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,23n,92p,461b,1268s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
@@ -1381,7 +1428,7 @@ lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/te
 xmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf
 -texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on poster.pdf (1 page, 483948 bytes).
+Output written on poster.pdf (1 page, 483970 bytes).
 PDF statistics:
  237 PDF objects out of 1000 (max. 8388607)
  14 named destinations out of 1000 (max. 500000)
