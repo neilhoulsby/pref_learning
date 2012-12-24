@@ -89,7 +89,7 @@ for (i in 1 : (nItems - 1)) {
 
 # Number of users for which preferences will be obtained.
 
-nUsers <- 1000
+nUsers <- 100
 
 # We generate the data for each user.
 
@@ -167,7 +167,9 @@ itemDim <- 1
 # We split the dataset in training and test pairs.
 # Each training set contains 2 / 3 of the ratings by each user.
 
-for (i in 1 : 25) {
+nReplicas <- 1
+
+for (i in 1 : nReplicas) {
 
 	trainSet <- matrix(0, 0, 2 * itemDim + 2)
 	testSet <- matrix(0, 0, 2 * itemDim + 2)

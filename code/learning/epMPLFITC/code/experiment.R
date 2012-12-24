@@ -16,7 +16,7 @@ active_method <- "bald"
 
 # Choose datataset
 
-datapath <- "../../../dataset_generation/sushi/"
+datapath <- "../../../dataset_generation/synthetic/"
 
 # We eliminate the previous results
 
@@ -59,7 +59,7 @@ for (i in simNumber) {
 
 	# We do nQueries iterations of active learning
 
-	nQueries <- 30
+	nQueries <- 1
 	for (j in 1 : (nQueries + 1)) {
 
 		# We standardize the item features so that they have zero mean and unit standard deviation in the training set
