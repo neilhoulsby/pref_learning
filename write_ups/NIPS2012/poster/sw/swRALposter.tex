@@ -1,0 +1,243 @@
+
+\documentclass[final,hyperref={pdfpagelabels=false}]{beamer}
+%\usepackage{grffile}
+\mode<presentation>{\usetheme{ktj}}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\usepackage{asymptote}
+\usepackage{cancel}
+\usepackage[latin1]{inputenc}
+\usepackage{asymptote}
+
+\usepackage{mathrsfs, amsmath, amssymb, latexsym}
+\boldmath
+\usepackage[orientation=portrait,size=a1,scale=0.9,debug]{beamerposter}
+% change list indention level
+% \setdefaultleftmargin{3em}{}{}{}{}{}
+
+%\usepackage{snapshot} % will write a .dep file with all dependencies, allows for easy bundling
+
+\newcommand{\pphantom}{\textcolor{ta3aluminium}} % phantom introduces a vertical space in p formatted table columns??!!
+
+\newcommand{\met}{\cancel{E}_T}
+\newcommand{\mpt}{\cancel{p}_T}
+\newcommand{\vmpt}{\vec{\cancel{p}}_T}
+\newcommand{\meff}{m_\text{eff}}
+\newcommand{\mct}{m_{CT}}
+\newcommand{\mtt}{m_{T2}}
+\newcommand{\jmdp}{\Delta\phi_{\text{jet}/\met}}
+\newcommand{\ttbar}{t\,\overline{t}}
+\newcommand{\nexp}[1]{\langle #1 \rangle}
+\newcommand{\lumi}{\mathcal{L}}
+\newcommand{\squark}{\tilde{q}}
+\newcommand{\gluino}{\tilde{g}}
+\newcommand{\lsp}{\chi^0_1}
+\newcommand{\bigo}{\mathcal{O}}
+\newcommand{\inv}[1]{$\text{#1}^{-1}$}
+
+\listfiles
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\graphicspath{ {/Users/tengman/Desktop/Plots/} }
+ 
+\title{{\huge Where could SUSY be hiding?} \\ \hskip13ex -- Searching for di-slepton production in ATLAS}
+\author{Sarah Williams\\Supervised by Dr. Christopher Lester}
+\institute{High Energy Physics Group, Cavendish Laboratory}
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\columnheight}
+\setlength{\columnheight}{105cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{frame}
+  \vskip2ex
+  \begin{columns}
+    % ---------------------------------------------------------%
+    % Set up a column 
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth}  % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{ % must be some better way to set the the height, width and textwidth simultaneously
+            % Since all columns are the same length, it is all nice and tidy.  You have to get the height empirically
+            % ---------------------------------------------------------%
+            % fill each column with content
+            
+            \begin{block}{Introduction to SUSY}
+            \begin{itemize}
+            \item Supersymmetry is an extension to the Standard Model that relates fermions and bosons.
+            \item Because no SUSY particles have yet been observed it must be a broken symmetry, and thus predicts heavier superpartners for all of the Standard Model particles.
+            \item The MSSM ("Minimal Supersymmetric Standard Model") has minimal particle content- the superpartners are divided into squarks , gluinos, neutralinos , charginos and sleptons.
+            \item In R-parity conserving SUSY, the lightest neutralino is the lightest supersymmetric particle (LSP)- and is stable.
+            \end{itemize}
+      	\begin{itemize}
+            \item The supersymmetric partners have the same weak and strong couplings as their Standard Model counterparts.
+            \item Consequently, being a hadron collider, the production of squarks and gluinos is favoured at the LHC as they are produced by the strong interaction. 
+            \item Typical signatures include large missing energy, and high $p_{T}$ jets and leptons.
+	   \end{itemize}
+            \end{block}
+           
+            \vskip2ex
+
+	\begin{block}{Motivation for searching for slepton production}
+	
+	\begin{itemize}
+	\item The SUSY searches in ATLAS have been very successful this year at excluding large areas of SUSY parameter space.
+	\item As an example in mSUGRA models with $tan(\beta)=10, A_{0}=0$ and $\mu>0$ the 0-lepton search excluded squarks and gluinos of equal mass below $950GeV$ with just $165fb^{-1}$ of data. (See ATLAS-CONF-2011-086)
+	\item These searches are very powerful at detecting (reasonably) light squarks and gluinos, but are not very sensitive to models with heavy squarks and gluinos $\rightarrow$ For these models, direct production of the lighter gauginos and sleptons can be important
+	\item The low masses can (partly) counteract the small cross sections for direct production:
+	
+         \begin{figure}[htbp]
+               
+               \caption{Feynman diagram for di-slepton production at the LHC}
+	      \label{fig:example}
+
+	 \end{figure}
+	\item In mSUGRA the slepton/squark mass relation means if there is slepton production there should also be significant squark production- mass gap between squarks and sleptons does not compensate for the low Electroweak cross section- so to observe sleptons we should also have observed squarks and gluinos...
+	\item But...assuming that SUSY is hiding somewhere....there are theories where slepton production could be a discovery channel.
+	\end{itemize}
+	
+	\end{block}
+	
+	
+	\vskip2ex
+	
+	\begin{block}{Where to look?}
+	\begin{itemize}
+	\item Such a search would be sensitive to any new particles with weak couplings carrying lepton number, which then decay to a lepton and an invisible particle.
+	\item For a framework use the pMSSM ("Phenomenological MSSM")- this applies several phenomenological constraints to the unconstrained MSSM which has 105 free parameters.The pMSSM then requires only 19 input parameters which include the sfermion masses.
+	\item Look for models with mass hierarchy $m_{\tilde{\chi}}, m_{\tilde{q}}>m_{\tilde{l}}>m_{\tilde{\chi}_{1}^{0}}$ which provides a competitive search for SUSY if $m_{\tilde{g}},m_{\tilde{q}}>>m_{\tilde{l}}$.
+	\item Mass spectrum for such a model shown below:
+	\begin{center}
+	    \begin{figure}[htbp]
+               
+               \caption{SUSY mass spectrum for a pMSSM model where di-slepton production could give a signal}
+	      \label{fig:example}
+
+	 \end{figure}
+	\end{center}
+
+	
+	
+	\end{itemize}
+	
+	
+	
+	\end{block}
+	
+	
+            }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+    % ---------------------------------------------------------%
+    % end the column
+
+    % ---------------------------------------------------------%
+    % Set up a column 
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth} % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{ % must be some better way to set the the height, width and textwidth simultaneously
+            % Since all columns are the same length, it is all nice and tidy.  You have to get the height empirically
+            % ---------------------------------------------------------%
+            % fill each column with content
+            
+            		
+            \begin{block}{The Di-Slepton Signature}
+            \begin{itemize} 
+            \item Feynman diagram for di-slepton production shown below:
+	   \begin{figure}[htbp]
+	      \centering
+	      \caption{Feynman diagram showing the production of a slepton pair, where each of the sleptons decays to a lepton and an invisible neutralino (the lsp)}
+	      \label{fig:sdecay}
+	   \end{figure}
+        	   \item Characteristics of such an event are two high $p_{T}$ isolated, opposite signed, same flavour leptons, no jets except for ISR and pileup, and missing transverse energy ($E_{T}^{miss}$)
+	   \item Major backgrounds come from di-leptonic $t\bar{t}$, diboson and $Z\rightarrow\tau\tau\rightarrow ee/\mu\mu$ events, as well as other backgrounds with fake leptons and/or missing energy (single top, QCD...)
+	   
+	          \end{itemize}
+            \end{block}
+            \vskip2ex
+
+            
+            \begin{block}{Opposite Sign Di-lepton SUSY searches in ATLAS}
+            
+            \begin{itemize}
+            \item SUSY searches in events in ATLAS with 2 oppositely signed leptons and missing energy are sensitive to events involving cascade decays:
+   
+              \begin{figure}[htbp]
+		     \centering
+
+               
+               \caption{Feynman diagram showing the cascade decay of a squark where two oppositely signed same flavour leptons are produced.}
+	      \label{fig:example}
+     
+		     \end{figure}
+		     
+            \item Plots below show kinematic distributions after event selection, object selection and event cleaning, and with a requirement of exactly two leptons, for $165pb^{-1}$ data.
+
+		  \begin{figure}[htbp]
+		     \centering
+	
+		  \end{figure} \vskip-2ex
+
+		  \begin{figure}[htbp]
+		     \centering
+
+		      \caption{Data vs MC distributions for 2-lepton events in the ATLAS detector for $165pb^{-1}$ of data}
+		  \end{figure} \vskip-2ex
+		  
+		  
+		 \end{itemize}
+		
+
+
+
+            \end{block}
+            \vskip2ex
+            
+            \begin{block}{Chasing down a signal...}
+            \begin{itemize}
+           \item Need to define an approach for searching for di-slepton production in 2 lepton events... current ideas involve:
+		              \end{itemize}
+		                 \begin{enumerate}
+            \item Central Jet Veto- this would reduce $t\bar{t}$ background.
+            \item Potentially use the "Stransverse mass" variable $m_{T2}$  [C.G. Lester and D. J. Summers, 1999], defined as:
+	$m_{T2}= \min_{\vec{\tilde{p}}_T + \vec{\tilde{q}}_T \;=\; \vmpt}
+				 \max\left( m_T [a^\alpha_T, \tilde{p}^\alpha_T(\tilde{\chi})], 
+				 		m_T [b^\alpha_T, \tilde{q}^\alpha_T(\tilde{\chi})] \right)$
+	where here \textbf{a} and \textbf{b} refer to the transverse momenta of the leptons and \textbf{p} and \textbf{q} to the hypothetical momenta of the neutralinos. It can be shown to be bounded above by the mass of the pair-produced parents.
+	\item Investigating possible angular variables.
+	
+            
+\end{enumerate}
+\begin{itemize}
+\item Hopefully there will be more to come in the future....
+\end{itemize}
+		                          \end{block}
+            
+            
+            
+           \vskip2ex
+
+
+           }        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+    % ---------------------------------------------------------%
+    % end the column
+  \end{columns}
+  \vskip1ex
+\end{frame}
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% End:

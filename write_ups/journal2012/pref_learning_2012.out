@@ -1,0 +1,23 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}
+\BOOKMARK [1][-]{section.2}{Pairwise Preference Learning as Special Case of Binary Classification }{}
+\BOOKMARK [2][-]{subsection.2.1}{Properties of the Preference Kernel}{section.2}
+\BOOKMARK [1][-]{section.3}{A Multi-User Model for Preference Learning }{}
+\BOOKMARK [2][-]{subsection.3.1}{Probabilistic Description}{section.3}
+\BOOKMARK [1][-]{section.4}{Active Learning }{}
+\BOOKMARK [2][-]{subsection.4.1}{Information Theoretic Approach}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{Application to GP Preference Learning}{section.4}
+\BOOKMARK [1][-]{section.5}{Expectation Propagation and Variational Bayes}{}
+\BOOKMARK [2][-]{subsection.5.1}{The EP predictive distribution}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{The EP update operations}{section.5}
+\BOOKMARK [2][-]{subsection.5.3}{The EP Approximation of the Model Evidence}{section.5}
+\BOOKMARK [2][-]{subsection.5.4}{Sparse Approximations to speed up Computations}{section.5}
+\BOOKMARK [1][-]{section.6}{Related Methods }{}
+\BOOKMARK [2][-]{subsection.6.1}{Multi-User Preference Learning}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Active Learning}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{Binary Classification Investigation}{section.6}
+\BOOKMARK [1][-]{section.7}{Experiments}{}
+\BOOKMARK [2][-]{subsection.7.1}{Datasets}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{Tuning the kernel lengthscale}{section.7}
+\BOOKMARK [2][-]{subsection.7.3}{Comparison with other multi-user methods}{section.7}
+\BOOKMARK [2][-]{subsection.7.4}{Active learning on large datasets}{section.7}
+\BOOKMARK [1][-]{section.8}{Conclusions }{}

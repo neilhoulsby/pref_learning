@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}
+\BOOKMARK [1][-]{section.2}{Pairwise preference learning as special case of binary classification}{}
+\BOOKMARK [1][-]{section.3}{Multi-user preference learning }{}
+\BOOKMARK [2][-]{subsection.3.1}{Probabilistic description}{section.3}
+\BOOKMARK [1][-]{section.4}{Bayesian active learning by disagreement}{}
+\BOOKMARK [2][-]{subsection.4.1}{BALD in binary classification with GPs}{section.4}
+\BOOKMARK [1][-]{section.5}{Expectation propagation and variational Bayes }{}
+\BOOKMARK [2][-]{subsection.5.1}{A sparse approximation to speed up computation}{section.5}
+\BOOKMARK [1][-]{section.6}{Experiments and Discussion}{}
+\BOOKMARK [2][-]{subsection.6.1}{Comparison with other multi-user methods}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Active learning on large datasets}{section.6}
+\BOOKMARK [1][-]{section.7}{Conclusions}{}

@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: nips2012.aux
+The style file: plain.bst
+Database file #1: bib/bibliog.bib
+Warning--can't use both author and editor fields in Ghahramani2001
+Warning--empty publisher in Ghahramani2001
+You've used 19 entries,
+            2118 wiz_defined-function locations,
+            617 strings with 7293 characters,
+and the built_in function-call counts, 7192 in all, are:
+= -- 707
+> -- 313
+< -- 9
++ -- 122
+- -- 102
+* -- 486
+:= -- 1136
+add.period$ -- 58
+call.type$ -- 19
+change.case$ -- 102
+chr.to.int$ -- 0
+cite$ -- 21
+duplicate$ -- 295
+empty$ -- 585
+format.name$ -- 102
+if$ -- 1550
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 19
+newline$ -- 98
+num.names$ -- 40
+pop$ -- 121
+preamble$ -- 1
+purify$ -- 86
+quote$ -- 0
+skip$ -- 222
+stack$ -- 0
+substring$ -- 504
+swap$ -- 92
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 72
+warning$ -- 2
+while$ -- 71
+width$ -- 21
+write$ -- 208
+(There were 2 warnings)

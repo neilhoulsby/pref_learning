@@ -1,0 +1,108 @@
+\section{Preference Learning with Gaussian Processes \label{sec:prefKernel}}
+
+To implement effective inference in our model, we leverage the fact that pairwise preference learning is a special case of binary classification: for each pair of items $(\x,\x')$ the algorithm has to provide a binary preference label $y\in\{+1,-1\}$ indicating whether $\x\succ\x'$ or $\x' \succ \x$.
+
+In this section we show that, if preference learning is thought of as classifying pairs of instances, the Gaussian Process-based preference learning model introduced in \citep{chu2005} is precisely equivalent to Gaussian Process classification (GPC) with the kernel chosen to take a particular form, to ensure that the classifier satisfies the anti-symmetry properties detailed above. This allows us to reuse inference techniques developed for GPC without modification other than using a specific kernel.
+
+We begin by reviewing the single-user model in \citep{chu2005}, if $f$ denotes the preference function of the user, the probability of preference between items $\x$ and $\x'$ becomes
+\begin{align}
+	\mathcal{P}[y=+1\vert (\x,\x'), f] = \mathcal{P}[\x\succ \x' \vert f] = \phi\left(\frac{f(\x) - f(\x'))}{\sqrt{2}\sigma_\delta}\right)
+\end{align}
+For later convenience and without loss of generality, we will assume that $\sqrt{2}\sigma_\delta=1$.
+
+The model is complete with a Gaussian Process prior over the latent preference function $f$:
+\begin{align}
+	f \sim GP(\mu,k)
+\end{align}
+
+In the original papers this likelihood model is used in an approximate inference scheme to infer a posterior over the latent utility function $f$. Note that the likelihood depends only upon the difference between $f(\x)$ and $f(\x')$, $g\left(\x,\x'\right) := f(\x) - f(\x')$, and not on actual values of $f$. From now on, this difference, which is a function of item-pairs $g:\mathcal{X}^2\mapsto\mathbb{R}$ will be the main focus of our interest, and we will re-parametrise the inference problem in terms of $g$. Observe that the likelihood in terms of $g$ is very simple, and in fact equivalent to the \emph{probit classification} likelihood:
+
+\begin{align}
+	\mathcal{P}[y=1\vert (\x,\x'), f] =  \phi\left(f(\x) - f(\x')\right) = \phi\left(g(\x,\x')\right) = \mathcal{P}[y=1\vert (\x,\x'), g] 
+\end{align}
+
+Note also that, because $g$ is obtained from $f$ via a linear operation, the Gaussian Process prior over $f$ induces a Gaussian Process prior over $g$. The mean $\mu_{pref}$, and covariance function $k_{pref}$ of this GP on $g$ can be computed from the mean and covariance of $f$ as follows:
+
+\begin{align}
+	k_{pref}((u_i,v_i),(u_j,v_j)) &= \mathrm{Cov}[g(u_i,v_i),g(u_j,v_j)]\notag\\
+		&= \mathrm{Cov}\left[\left(f(u_i) - f(v_i)\right) , \left(f(u_i)  - f(v_i)\right)\right]\notag\\
+		&= \mathbb{E}\left[\left(f(u_i) - f(v_i)\right)\cdot \left(f(u_i)  - f(v_i)\right)\right] - \left(\mu(u_i) -  \mu(v_i)\right) \left(\mu(v_j) - \mu(u_i)\right)\notag\\
+		&= k(u_i,u_j) + k(v_i,v_j) - k(u_i,v_j) - k(v_i,u_j)\notag
+\end{align}
+and
+\begin{align}
+	\mu_{pref}(u,v) &= \mathbb{E}\left[g([u,v])\right] = \mathbb{E}\left[f(u) - f(v)\right]\notag =\mu(u) - \mu(v)
+\end{align}
+
+We call $k_{pref}$ the \emph{preference judgement covariance}, or \emph{preference judgement kernel}. We can conclude that this model of predicting preferences between items in $\mathcal{X}$ is equivalent to binary GP classification of items in $\mathcal{X}^2$ with the preference judgement covariance function as follows:
+
+\begin{align}
+	g\sim GP(\mu_{pref},k_{pref})\\
+	p(y=+1\vert (\x,\x'),g) = \Phi(g(\x,\x'))
+\end{align}
+
+Figure \ref{fig:graphical_model} illustrates the difference between the original approach where the quantity of central interest was $f$ and our approach where the quantity of interest is $g$.
+
+\begin{figure}[t]
+	\begin{center}
+		\begin{tikzpicture}
+				\node at (2.5in,2.4in) [fill =black, rectangle,inner sep=0pt, minimum size = 0.3cm] (factor) {};
+				\node at (2in,1.9in) [draw, circle,inner sep=0pt, minimum size = 1cm, top color=white, bottom color=black!10] (f_1) {$f(u_k)$};
+				\node at (3in,1.9in) [draw, circle,inner sep=0pt, minimum size = 1cm, top color=white, bottom color=black!10] (f_2) {$f(v_k)$};
+				\node at (1.6in,1.4in) [draw, circle,inner sep=0pt, minimum size = 1cm, top color=white, bottom color=black!10] (delta_2) {$\delta_{u_k}$};	
+				\node at (3.4in,1.4in) [draw, circle,inner sep=0pt, minimum size = 1cm, top color=white, bottom color=black!10] (delta_1) {$\delta_{v_k}$};
+				\node at (2.5in,0.7in) [draw, circle,inner sep=0pt, minimum size = 1cm, top color=white, bottom color=black!10] (g) {\scriptsize $g\left(\begin{matrix}u_k\\v_k\\\end{matrix}\right)$};
+				\node at (2.5in,0in) [draw, circle,inner sep=0pt, minimum size = 1cm, top color=white, bottom color=black!10] (y) {$y_k$};
+				\draw [->] (g) to (y);
+				\draw  (factor) to (f_1);
+				\draw (factor) to (f_2);
+				\draw [->] (f_1) to (g);			
+				\draw [->] (f_2) to (g);
+				\draw [->] (delta_1) to (g);
+				\draw [->] (delta_2) to (g);
+				\draw [thick,decorate,decoration={brace,amplitude=5pt},] (1in,1.95in)  -- (1in,2.5in)
+					node [black,midway,left=4pt] {simple prior on $f$};
+				\draw [thick,decorate,decoration={brace,amplitude=5pt}] (1in,0in)  -- (1in,1.85in)
+					node [black,midway,left=4pt] {structured likelihood};
+				\draw [thick,decorate,decoration={brace,amplitude=5pt}] (4in,2.5in)  -- (4in,0.75in)
+									node [black,midway,right=4pt] {structured prior on $g$};
+				\draw [thick,decorate,decoration={brace,amplitude=5pt}] (4in,0.65in)  -- (4in,0in)
+					node [black,midway,right=4pt] {simple likelihood};
+			\end{tikzpicture}
+	\end{center}
+		\caption{Generative model underlying the preference learning framework. \emph{Left:} the original approach considers the latent preference function $f$ as latent parameter, and the rest of the graphical model as a complex, structured likelihood. \emph{Right:} Our approach re-parametrises the problem in terms of $g$, and thus works with a simpler likelihood but with a more structured prior. The prior takes the form of a Gaussian Process prior with the preference judgement covariance function. \label{fig:graphical_model}}
+\end{figure}
+
+It can be shown that the preference judgement kernel, $k_{pref}$ is positive semi-definite. We can also see how $k_{pref}$ respects the anti-symmetry properties of preference learning, by computing the prior correlation between $g(\x,\x')$ and $g(\x',\x)$ as follows (assuming for brevity $\mu_{pref}=0$):
+ 
+ \begin{align}
+ 	Corr&(g(\x,\x'),g(\x',\x)) = \frac{k_{pref}((\x,\x'),(\x',\x))}{\sqrt{k_{pref}((\x,\x'),(\x,\x'))}\sqrt{k_{pref}((\x',\x),(\x',\x))}} \notag\\
+ 		&= \frac{k(\x,\x') + k(\x',\x) - k(\x,\x) - k(\x',\x')}{\sqrt{k(\x,\x) + k(\x',\x') - k(\x,\x') - k(\x',\x)}\sqrt{k(\x',\x') + k(\x,\x) - k(\x',\x) - k(\x,\x')}} = -1\notag
+ \end{align}
+
+That is, the value at $(\x,\x')$ is perfectly anti-correlated with the value at $(\x',\x)$ under the prior. From this fact it can be shown that all elements $g$ of the reproducing kernel Hilbert space (RKHS) corresponding to $k_{pref}$ have the property that $g(\x,\x') = -g(\x',\x)$. Figure \ref{fig:samples_from_prior} shows samples drawn from a GP prior with the preference learning covariance function. The anti-correlation properties are clearly visible in all of these examples.
+
+\subsubsection{Multi-user case}
+
+In collaborative (or multi-user) preference learning we have binary preference judgements from multiple users. The data can be represented as labeled triplets $(i,u,v)$, with a label 1 indicating that individual $i$ prefers item $u$ over item $v$. In the remainder of this paper we will refer to individuals as users. Instead of modelling each user's preference judgements independently, we would like to leverage the similarity or dependence between user's preferences. We might discover for example that users' preferences over news items can be roughly summarised by how interested they are in main themes such as sports, politics or technology. We can identify these general themes by looking at data across all users. Then at the level of individuals we only have to infer their relative interest in these main themes, and potentially subtle deviations from mainstream behaviour. This is evidently a much easier inference task, than trying to build up each user's whole preference over all items from scratch.
+
+Here we present a model that expresses l these kind of dependences in the Gaussian Process framework, following work by \cite{.}. Then we show that it, too, reduces to probit Gaussian Process classification with a specially chosen kernel.
+
+Let $f_i(\cdot)$ denote user $i$'s value function as before. We will assume that it can be expressed as a weighted sum of a fixed set of prototypic value functions $\phi_k(\cdot)$, that are shared among users:
+
+\begin{equation}
+	f_i(\cdot) = \sum_{k=1}^{K}w_{i,k}\phi_k(\cdot) + \epsilon_i(\cdot)
+\end{equation}
+
+Carrying the maths through the likelihood becomes
+
+Now it makes sense to define $g(i,u,v) = f_i(u) - f_i(v)$. Again, $g$ will have a Gaussian Process prior with covariance (assuming zero mean):
+
+\begin{align}
+k((i,u,v),(i',u',v')) &= \mathbb{E}[g(i,u,v)g(i',u',v')]\\
+	&= \left(\sum_{k=1}^{K}w_{i,k}\phi_k(\cdot) + \epsilon_i(\cdot)\right)\left(\sum_{l=1}^{K}w_{i',l}\phi_l(\cdot) + \epsilon_i(\cdot)\right)
+\end{align}
+
+Collaborative binary preference learning can therefore also be expressed as GP classification with the kernel above. This is of course given particular values of the topical interest factors $w$, which essentially become hyperparameters. For learning these, one can use general approaches developed for optimising covariance hyperparameters, such as evidence maximisation, or expectation-maximisation. In the future we plan to develop an approximate Bayesian inference method using a combination of expectation propagation and variational message passing.
+
+

@@ -1,0 +1,22 @@
+\begin{thebibliography}{3}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[Birlutiu et~al., 2010]{birlutiu2009}
+Birlutiu A, Groot P, Heskes T. 2010.
+\newblock Multi-task preference learning with an application to hearing aid
+  personalization.
+\newblock Neurocomputing 73:1177 -- 1185.
+
+\bibitem[Bonilla et~al., 2010]{bonilla2010}
+Bonilla EV, Guo S, Sanner S. 2010.
+\newblock Gaussian process preference elicitation.
+\newblock In: Advances in Neural Information Processing Systems 23. pp
+  262--270.
+
+\bibitem[Chu and Ghahramani, 2005]{chu2005}
+Chu W, Ghahramani Z. 2005.
+\newblock Preference learning with {G}aussian processes.
+\newblock In: Proceedings of the 22nd international conference on Machine
+  learning. pp 137--144.
+
+\end{thebibliography}

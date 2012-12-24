@@ -1,0 +1,115 @@
+\begin{thebibliography}{10}
+
+\bibitem{birlutiu2009}
+A.~Birlutiu, P.~Groot, and T.~Heskes.
+\newblock Multi-task preference learning with an application to hearing aid
+  personalization.
+\newblock {\em Neurocomputing}, 73(7–9):1177 -- 1185, 2010.
+
+\bibitem{Bonilla2010}
+Edwin~V. Bonilla, Shengbo Guo, and Scott Sanner.
+\newblock Gaussian process preference elicitation.
+\newblock In {\em Advances in Neural Information Processing Systems 23}, pages
+  262--270, 2010.
+
+\bibitem{brochu2007active}
+E.~Brochu, N.~de~Freitas, and A.~Ghosh.
+\newblock Active preference learning with discrete choice data.
+\newblock {\em Advances in Neural Information Processing Systems 20},
+  20:409--416, 2007.
+
+\bibitem{chu2005}
+W.~Chu and Z.~Ghahramani.
+\newblock Preference learning with {G}aussian processes.
+\newblock In {\em Proceedings of the 22nd international conference on Machine
+  learning}, pages 137--144, 2005.
+
+\bibitem{de2009}
+M.~De~Gemmis, L.~Iaquinta, P.~Lops, C.~Musto, F.~Narducci, and G.~Semeraro.
+\newblock Preference learning in recommender systems.
+\newblock In {\em ECML/PKDD-09 Workshop on Preference Learning}, 2009.
+
+\bibitem{furnkranz2010}
+J.~F{\"u}rnkranz and E.~H{\"u}llermeier.
+\newblock {\em Preference learning}.
+\newblock Springer-Verlag New York Inc, 2010.
+
+\bibitem{Ghahramani2001}
+Z.~Ghahramani and M.~J. Beal.
+\newblock {\em Advanced Mean Field Method---Theory and Practice}, chapter
+  Graphical models and variational methods, pages 161--177.
+\newblock 2001.
+
+\bibitem{krishnapuram2004}
+B.~Krishnapuram, D.~Williams, Y.~Xue, A.~Hartemink, L.~Carin, and
+  M.~Figueiredo.
+\newblock {On semi-supervised classification}.
+\newblock In {\em Advances in neural information processing systems 17}, pages
+  721--728, 2004.
+
+\bibitem{lawrence2002}
+N.D. Lawrence, M.~Seeger, and R.~Herbrich.
+\newblock Fast sparse gaussian process methods: The informative vector machine.
+\newblock {\em Advances in Neural Information Processing Systems 15},
+  15:609--616, 2002.
+
+\bibitem{lindley1956}
+D.V. Lindley.
+\newblock {On a measure of the information provided by an experiment}.
+\newblock {\em The Annals of Mathematical Statistics}, 27(4):986--1005, 1956.
+
+\bibitem{MacKay2001}
+D.~J.~C. MacKay.
+\newblock Local minima, symmetry-breaking, and model pruning in variational
+  free energy minimization.
+\newblock Available at http://www.inference.phy.cam.ac.uk/mackay/minima.pdf,
+  2001.
+
+\bibitem{mackay1992}
+D.J.C. MacKay.
+\newblock Information-based objective functions for active data selection.
+\newblock {\em Neural computation}, 4(4):590--604, 1992.
+
+\bibitem{Minka2002}
+T.~Minka and J.~Lafferty.
+\newblock Expectation-propagation for the generative aspect model.
+\newblock In {\em Proceedings of the Eighteenth conference on Uncertainty in
+  artificial intelligence}, pages 352--359, 2002.
+
+\bibitem{Minka2001}
+Tom Minka.
+\newblock {\em A family of algorithms for approximate Bayesian inference}.
+\newblock PhD thesis, MIT, 2001.
+
+\bibitem{nickisch2008}
+Hannes Nickisch and Carl~Edward Rasmussen.
+\newblock Approximations for binary {Gaussian} process classification.
+\newblock {\em The Journal of Machine Learning Research}, 9:2035--2078, 2008.
+
+\bibitem{raiko2007}
+T.~Raiko, A.~Ilin, and K.~Juha.
+\newblock Principal component analysis for large scale problems with lots of
+  missing values.
+\newblock In Joost Kok, Jacek Koronacki, Raomon Mantaras, Stan Matwin, Dunja
+  Mladenic, and Andrzej Skowron, editors, {\em Machine Learning: ECML 2007},
+  volume 4701 of {\em Lecture Notes in Computer Science}, pages 691--698.
+  Springer Berlin / Heidelberg, 2007.
+
+\bibitem{sebastiani2000}
+P.~Sebastiani and H.P. Wynn.
+\newblock {Maximum entropy sampling and optimal Bayesian experimental design}.
+\newblock {\em Journal of the Royal Statistical Society. Series B (Statistical
+  Methodology)}, 62(1):145--157, 2000.
+
+\bibitem{Snelson2006}
+E.~Snelson and Z.~Ghahramani.
+\newblock Sparse gaussian processes using pseudo-inputs.
+\newblock In {\em Advances in Neural Information Processing Systems 18}, 2005.
+
+\bibitem{stern2009}
+D.~H. Stern, R.~Herbrich, and T.~Graepel.
+\newblock Matchbox: large scale online bayesian recommendations.
+\newblock In {\em Proceedings of the 18th international conference on World
+  wide web}, pages 111--120, 2009.
+
+\end{thebibliography}

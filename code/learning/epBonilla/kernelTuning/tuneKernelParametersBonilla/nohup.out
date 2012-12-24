@@ -1,0 +1,1213 @@
+
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #
+> # R script that evaluates the performance of the multitask preference learning model on synthetic data.
+> #
+> # Author: Jose Miguel Hernandez Lobato
+> #
+> # Date: 24 Dec 2011
+> #
+> 
+> set.seed(1)
+> 
+> source("epBonilla.R")
+> 
+> # We eliminate the previous results
+> 
+> system("rm -f results/*.txt")
+> 
+> # We load the item descriptions
+> 
+> itemFeatures <- as.matrix(read.table("../trainTestPartitions/itemFeatures.txt"))
+> 
+> # We load the user descriptions
+> 
+> userFeatures <- as.matrix(read.table("../trainTestPartitions/userFeatures.txt"))
+> 
+> # We standardize the user features so that they have zero mean and unit standard deviation
+> 
+> meanUserFeatures <- apply(userFeatures, 2, mean)
+> sdUserFeatures <- apply(userFeatures, 2, sd)
+> sdUserFeatures[ sdUserFeatures == 0 ] <- 1
+> 
+> userFeatures <- (userFeatures - matrix(meanUserFeatures, nrow(userFeatures), ncol(userFeatures), byrow = T)) /
++ 	matrix(sdUserFeatures, nrow(userFeatures), ncol(userFeatures), byrow = T)
+> 
+> # We load the number of different items
+> 
+> nItems <- read.table("../trainTestPartitions/nItems.txt")$V1
+> 
+> # We load the simulation number
+> 
+> simNumber <- 1
+> 
+> # We repeat for the current train/test partition
+> 
+> for (i in simNumber) {
++ 
++ 	# We load the training, pool and test sets
++ 
++ 	train <- as.matrix(read.table(paste("../trainTestPartitions/train", i, ".txt", sep = "")))
++ 	test <- as.matrix(read.table(paste("../trainTestPartitions/test", i, ".txt", sep = "")))
++ 	pool <- as.matrix(read.table(paste("../trainTestPartitions/pool", i, ".txt", sep = "")))
++ 
++ 	for (j in unique(train[ , 3 ])) {
++ 		train <- rbind(train, pool[ sample(which(pool[ , 3 ] == j), 5), ])
++ 		print(j)
++ 	}
++ 
++ 	# We do 10 iterations of active learning
++ 
++ 	nQueries <- 0
++ 	for (j in 1 : (nQueries + 1)) {
++ 
++ 		# We standardize the item features so that they have zero mean and unit standard deviation in the training set
++ 
++ 		meanItemFeatures <- apply(itemFeatures[ unique(c(train[ , 1 ], train[ , 2 ])), ], 2, mean)
++ 		sdItemFeatures <- apply(itemFeatures[ unique(c(train[ , 1 ], train[ , 2 ])), ], 2, sd)
++ 		sdItemFeatures[ sdItemFeatures == 0 ] <- 1
++ 
++ 		itemFeaturesStandardized <- (itemFeatures - matrix(meanItemFeatures, nrow(itemFeatures), ncol(itemFeatures), byrow = T)) / 
++ 			matrix(sdItemFeatures, nrow(itemFeatures), ncol(itemFeatures), byrow = T)
++ 
++ 		itemFeaturesStandardized <- itemFeatures
++ 
++ 		# We create the training data to pass to the EP method
++ 
++ 		itemFeaturesAtrain <- itemFeaturesStandardized[ train[ , 1 ], ]
++ 		itemFeaturesBtrain <-itemFeaturesStandardized[ train[ , 2 ], ]
++ 		userIdsTrain <- train[ , 3 ]
++ 		ratingsTrain <- train[ , 4 ]
++ 
++ 		# We construct the problemInfo list
++ 
++ 		problemInfo <- list(itemFeaturesA = itemFeaturesAtrain, itemFeaturesB = itemFeaturesBtrain,
++ 			ratings = ratingsTrain, userFeatures = userFeatures[ userIdsTrain, ])
++ 
++ 		# We call the EP method
++ 
++ 		ret <- epBonilla(problemInfo)
++ 
++ 		# We store the kernel hyper-parameters
++ 
++ 		write.table(ret$problemInfo$lengthScaleUsers, "lengthScaleUsers.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$lengthScaleItems, "lengthScaleItems.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$noiseUsers, "noiseUsers.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$noiseItems, "noiseItems.txt", col.names = F, row.names = F)
++ 
++ 		# We eavaluate the performance of the method on the test set
++ 
++ 		userIdsTest <- test[ , 3 ]
++ 		ratingsTest <- test[ , 4 ]
++ 		itemFeaturesAtest <- itemFeaturesStandardized[ test[ , 1 ], ]
++ 		itemFeaturesBtest <- itemFeaturesStandardized[ test[ , 2 ], ]
++ 
++ 		pred <- sign(predictBonilla(ret, userFeatures[ userIdsTest, ], itemFeaturesAtest, itemFeaturesBtest)$m)
++ 		error <- mean(pred != ratingsTest)
++ 		write.table(error, paste("results/error", j - 1, ".txt", sep = ""), col.names = F, row.names = F, append = T)
++ 
++ 		# We make predictions in the pool set
++ 
++ 		userIdsPool <- pool[ , 3 ]
++ 		itemFeaturesApool <- itemFeaturesStandardized[ pool[ , 1 ], ]
++ 		itemFeaturesBpool <- itemFeaturesStandardized[ pool[ , 2 ], ]
++ 
++ 		pred <- predictBonilla(ret, userFeatures[ userIdsPool, ], itemFeaturesApool, itemFeaturesBpool)
++ 
++ 		# We compute the bald score for each point in the pool set
++ 
++ 		prob <- pnorm(pred$m / sqrt(pred$v + 1))
++ 		firstTerm <- -(1 - prob) * log(1 - prob) - prob * log(prob)
++ 		C <- sqrt(pi * log(2)  / 2)
++ 		secondTerm <- C / (sqrt(pred$v) + C^2) * exp(-pred$m^2 / (2 * (pred$v + C^2)))
++ 
++ 		bald <- firstTerm - secondTerm
++ 
++ 		# For each user we select the point with highest bald score
++ 
++ 		pointsToInclude <- tapply(bald, userIdsPool, which.max) +
++ 			c(0, cumsum(tapply(bald, userIdsPool, length))[ 1 : (length(unique(userIdsPool)) - 1) ])
++ 
++ 		# We include these items in the train dataset and eliminate them from the pool set
++ 
++ 		train <- rbind(train, pool[ pointsToInclude, ])
++ 		pool <- pool[ -pointsToInclude, ]
++ 	}
++ }
+[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 7
+[1] 8
+[1] 9
+[1] 10
+[1] 11
+[1] 12
+[1] 13
+[1] 14
+[1] 15
+[1] 16
+[1] 17
+[1] 18
+[1] 19
+[1] 20
+[1] 21
+[1] 22
+[1] 23
+[1] 24
+[1] 25
+[1] 26
+[1] 27
+[1] 28
+[1] 29
+[1] 30
+[1] 31
+[1] 32
+[1] 33
+[1] 34
+[1] 35
+[1] 36
+[1] 37
+[1] 38
+[1] 39
+[1] 40
+[1] 41
+[1] 42
+[1] 43
+[1] 44
+[1] 45
+[1] 46
+[1] 47
+[1] 48
+[1] 49
+[1] 50
+[1] 51
+[1] 52
+[1] 53
+[1] 54
+[1] 55
+[1] 56
+[1] 57
+[1] 58
+[1] 59
+[1] 60
+[1] 61
+[1] 62
+[1] 63
+[1] 64
+[1] 65
+[1] 66
+[1] 67
+[1] 68
+[1] 69
+[1] 70
+[1] 71
+[1] 72
+[1] 73
+[1] 74
+[1] 75
+[1] 76
+[1] 77
+[1] 78
+[1] 79
+[1] 80
+[1] 81
+[1] 82
+[1] 83
+[1] 84
+[1] 85
+[1] 86
+[1] 87
+[1] 88
+[1] 89
+[1] 90
+[1] 91
+[1] 92
+[1] 93
+[1] 94
+[1] 95
+[1] 96
+[1] 97
+[1] 98
+[1] 99
+[1] 100
+1 2.223651 
+2 0.6761082 
+3 0.3668767 
+4 0.2214968 
+5 0.139502 
+6 0.09002969 
+7 0.05921161 
+8 0.04029299 
+9 0.02824556 
+10 0.0201191 
+11 0.01456573 
+12 0.01071896 
+13 0.00801631 
+14 0.006089563 
+15 0.004695551 
+16 0.003672107 
+17 0.00290991 
+18 0.002334402 
+19 0.001894112 
+20 0.001553059 
+21 0.001285771 
+22 0.001073989 
+23 0.0009093678 
+
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #
+> # R script that evaluates the performance of the multitask preference learning model on synthetic data.
+> #
+> # Author: Jose Miguel Hernandez Lobato
+> #
+> # Date: 24 Dec 2011
+> #
+> 
+> set.seed(1)
+> 
+> source("epBonilla.R")
+> 
+> # We eliminate the previous results
+> 
+> system("rm -f results/*.txt")
+> 
+> # We load the item descriptions
+> 
+> itemFeatures <- as.matrix(read.table("../trainTestPartitions/itemFeatures.txt"))
+> 
+> # We load the user descriptions
+> 
+> userFeatures <- as.matrix(read.table("../trainTestPartitions/userFeatures.txt"))
+> 
+> # We standardize the user features so that they have zero mean and unit standard deviation
+> 
+> meanUserFeatures <- apply(userFeatures, 2, mean)
+> sdUserFeatures <- apply(userFeatures, 2, sd)
+> sdUserFeatures[ sdUserFeatures == 0 ] <- 1
+> 
+> userFeatures <- (userFeatures - matrix(meanUserFeatures, nrow(userFeatures), ncol(userFeatures), byrow = T)) /
++ 	matrix(sdUserFeatures, nrow(userFeatures), ncol(userFeatures), byrow = T)
+> 
+> # We load the number of different items
+> 
+> nItems <- read.table("../trainTestPartitions/nItems.txt")$V1
+> 
+> # We load the simulation number
+> 
+> simNumber <- 1
+> 
+> # We repeat for the current train/test partition
+> 
+> for (i in simNumber) {
++ 
++ 	# We load the training, pool and test sets
++ 
++ 	train <- as.matrix(read.table(paste("../trainTestPartitions/train", i, ".txt", sep = "")))
++ 	test <- as.matrix(read.table(paste("../trainTestPartitions/test", i, ".txt", sep = "")))
++ 	pool <- as.matrix(read.table(paste("../trainTestPartitions/pool", i, ".txt", sep = "")))
++ 
++ 	for (j in unique(train[ , 3 ])) {
++ 		train <- rbind(train, pool[ sample(which(pool[ , 3 ] == j), 5), ])
++ 		print(j)
++ 	}
++ 
++ 	# We do 10 iterations of active learning
++ 
++ 	nQueries <- 0
++ 	for (j in 1 : (nQueries + 1)) {
++ 
++ 		# We standardize the item features so that they have zero mean and unit standard deviation in the training set
++ 
++ 		meanItemFeatures <- apply(itemFeatures[ unique(c(train[ , 1 ], train[ , 2 ])), ], 2, mean)
++ 		sdItemFeatures <- apply(itemFeatures[ unique(c(train[ , 1 ], train[ , 2 ])), ], 2, sd)
++ 		sdItemFeatures[ sdItemFeatures == 0 ] <- 1
++ 
++ 		itemFeaturesStandardized <- (itemFeatures - matrix(meanItemFeatures, nrow(itemFeatures), ncol(itemFeatures), byrow = T)) / 
++ 			matrix(sdItemFeatures, nrow(itemFeatures), ncol(itemFeatures), byrow = T)
++ 
++ 		itemFeaturesStandardized <- itemFeatures
++ 
++ 		# We create the training data to pass to the EP method
++ 
++ 		itemFeaturesAtrain <- itemFeaturesStandardized[ train[ , 1 ], ]
++ 		itemFeaturesBtrain <-itemFeaturesStandardized[ train[ , 2 ], ]
++ 		userIdsTrain <- train[ , 3 ]
++ 		ratingsTrain <- train[ , 4 ]
++ 
++ 		# We construct the problemInfo list
++ 
++ 		problemInfo <- list(itemFeaturesA = itemFeaturesAtrain, itemFeaturesB = itemFeaturesBtrain,
++ 			ratings = ratingsTrain, userFeatures = userFeatures[ userIdsTrain, ])
++ 
++ 		# We call the EP method
++ 
++ 		ret <- epBonilla(problemInfo)
++ 
++ 		# We store the kernel hyper-parameters
++ 
++ 		write.table(ret$problemInfo$lengthScaleUsers, "lengthScaleUsers.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$lengthScaleItems, "lengthScaleItems.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$noiseUsers, "noiseUsers.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$noiseItems, "noiseItems.txt", col.names = F, row.names = F)
++ 
++ 		# We eavaluate the performance of the method on the test set
++ 
++ 		userIdsTest <- test[ , 3 ]
++ 		ratingsTest <- test[ , 4 ]
++ 		itemFeaturesAtest <- itemFeaturesStandardized[ test[ , 1 ], ]
++ 		itemFeaturesBtest <- itemFeaturesStandardized[ test[ , 2 ], ]
++ 
++ 		pred <- sign(predictBonilla(ret, userFeatures[ userIdsTest, ], itemFeaturesAtest, itemFeaturesBtest)$m)
++ 		error <- mean(pred != ratingsTest)
++ 		write.table(error, paste("results/error", j - 1, ".txt", sep = ""), col.names = F, row.names = F, append = T)
++ 
++ 		# We make predictions in the pool set
++ 
++ 		userIdsPool <- pool[ , 3 ]
++ 		itemFeaturesApool <- itemFeaturesStandardized[ pool[ , 1 ], ]
++ 		itemFeaturesBpool <- itemFeaturesStandardized[ pool[ , 2 ], ]
++ 
++ 		pred <- predictBonilla(ret, userFeatures[ userIdsPool, ], itemFeaturesApool, itemFeaturesBpool)
++ 
++ 		# We compute the bald score for each point in the pool set
++ 
++ 		prob <- pnorm(pred$m / sqrt(pred$v + 1))
++ 		firstTerm <- -(1 - prob) * log(1 - prob) - prob * log(prob)
++ 		C <- sqrt(pi * log(2)  / 2)
++ 		secondTerm <- C / (sqrt(pred$v) + C^2) * exp(-pred$m^2 / (2 * (pred$v + C^2)))
++ 
++ 		bald <- firstTerm - secondTerm
++ 
++ 		# For each user we select the point with highest bald score
++ 
++ 		pointsToInclude <- tapply(bald, userIdsPool, which.max) +
++ 			c(0, cumsum(tapply(bald, userIdsPool, length))[ 1 : (length(unique(userIdsPool)) - 1) ])
++ 
++ 		# We include these items in the train dataset and eliminate them from the pool set
++ 
++ 		train <- rbind(train, pool[ pointsToInclude, ])
++ 		pool <- pool[ -pointsToInclude, ]
++ 	}
++ }
+[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 7
+[1] 8
+[1] 9
+[1] 10
+[1] 11
+[1] 12
+[1] 13
+[1] 14
+[1] 15
+[1] 16
+[1] 17
+[1] 18
+[1] 19
+[1] 20
+[1] 21
+[1] 22
+[1] 23
+[1] 24
+[1] 25
+[1] 26
+[1] 27
+[1] 28
+[1] 29
+[1] 30
+[1] 31
+[1] 32
+[1] 33
+[1] 34
+[1] 35
+[1] 36
+[1] 37
+[1] 38
+[1] 39
+[1] 40
+[1] 41
+[1] 42
+[1] 43
+[1] 44
+[1] 45
+[1] 46
+[1] 47
+[1] 48
+[1] 49
+[1] 50
+[1] 51
+[1] 52
+[1] 53
+[1] 54
+[1] 55
+[1] 56
+[1] 57
+[1] 58
+[1] 59
+[1] 60
+[1] 61
+[1] 62
+[1] 63
+[1] 64
+[1] 65
+[1] 66
+[1] 67
+[1] 68
+[1] 69
+[1] 70
+[1] 71
+[1] 72
+[1] 73
+[1] 74
+[1] 75
+[1] 76
+[1] 77
+[1] 78
+[1] 79
+[1] 80
+[1] 81
+[1] 82
+[1] 83
+[1] 84
+[1] 85
+[1] 86
+[1] 87
+[1] 88
+[1] 89
+[1] 90
+[1] 91
+[1] 92
+[1] 93
+[1] 94
+[1] 95
+[1] 96
+[1] 97
+[1] 98
+[1] 99
+[1] 100
+1 2.223651 
+2 0.6761082 
+3 0.3668767 
+4 0.2214968 
+5 0.139502 
+6 0.09002969 
+7 0.05921161 
+8 0.04029299 
+9 0.02824556 
+10 0.0201191 
+11 0.01456573 
+12 0.01071896 
+13 0.00801631 
+14 0.006089563 
+15 0.004695551 
+16 0.003672107 
+17 0.00290991 
+18 0.002334402 
+19 0.001894112 
+20 0.001553059 
+21 0.001285771 
+22 0.001073989 
+23 0.0009093678 
+
+ 0 New evidence: -1415.388 
+
+1 0.5030696 
+2 0.3106642 
+3 0.1962713 
+4 0.1257528 
+5 0.08159082 
+6 0.05369143 
+7 0.03590986 
+8 0.02444958 
+9 0.01696175 
+10 0.01199255 
+11 0.008639033 
+12 0.006336396 
+13 0.004727719 
+14 0.003584648 
+15 0.002759043 
+16 0.002194412 
+17 0.001767856 
+18 0.001438152 
+19 0.001180605 
+20 0.0009774188 
+
+ 1 New evidence: -1345.374 eps: 0.11 
+
+
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #
+> # R script that evaluates the performance of the multitask preference learning model on synthetic data.
+> #
+> # Author: Jose Miguel Hernandez Lobato
+> #
+> # Date: 24 Dec 2011
+> #
+> 
+> set.seed(1)
+> 
+> source("epBonilla.R")
+> 
+> # We eliminate the previous results
+> 
+> system("rm -f results/*.txt")
+> 
+> # We load the item descriptions
+> 
+> itemFeatures <- as.matrix(read.table("../trainTestPartitions/itemFeatures.txt"))
+> 
+> # We load the user descriptions
+> 
+> userFeatures <- as.matrix(read.table("../trainTestPartitions/userFeatures.txt"))
+> 
+> # We standardize the user features so that they have zero mean and unit standard deviation
+> 
+> meanUserFeatures <- apply(userFeatures, 2, mean)
+> sdUserFeatures <- apply(userFeatures, 2, sd)
+> sdUserFeatures[ sdUserFeatures == 0 ] <- 1
+> 
+> userFeatures <- (userFeatures - matrix(meanUserFeatures, nrow(userFeatures), ncol(userFeatures), byrow = T)) /
++ 	matrix(sdUserFeatures, nrow(userFeatures), ncol(userFeatures), byrow = T)
+> 
+> # We load the number of different items
+> 
+> nItems <- read.table("../trainTestPartitions/nItems.txt")$V1
+> 
+> # We load the simulation number
+> 
+> simNumber <- 1
+> 
+> # We repeat for the current train/test partition
+> 
+> for (i in simNumber) {
++ 
++ 	# We load the training, pool and test sets
++ 
++ 	train <- as.matrix(read.table(paste("../trainTestPartitions/train", i, ".txt", sep = "")))
++ 	test <- as.matrix(read.table(paste("../trainTestPartitions/test", i, ".txt", sep = "")))
++ 	pool <- as.matrix(read.table(paste("../trainTestPartitions/pool", i, ".txt", sep = "")))
++ 
++ 	train <- train[ which(train[ , 3 ] <= 25), ]
++ 
++ 	# We do 10 iterations of active learning
++ 
++ 	nQueries <- 0
++ 	for (j in 1 : (nQueries + 1)) {
++ 
++ 		# We standardize the item features so that they have zero mean and unit standard deviation in the training set
++ 
++ 		meanItemFeatures <- apply(itemFeatures[ unique(c(train[ , 1 ], train[ , 2 ])), ], 2, mean)
++ 		sdItemFeatures <- apply(itemFeatures[ unique(c(train[ , 1 ], train[ , 2 ])), ], 2, sd)
++ 		sdItemFeatures[ sdItemFeatures == 0 ] <- 1
++ 
++ 		itemFeaturesStandardized <- (itemFeatures - matrix(meanItemFeatures, nrow(itemFeatures), ncol(itemFeatures), byrow = T)) / 
++ 			matrix(sdItemFeatures, nrow(itemFeatures), ncol(itemFeatures), byrow = T)
++ 
++ 		itemFeaturesStandardized <- itemFeatures
++ 
++ 		# We create the training data to pass to the EP method
++ 
++ 		itemFeaturesAtrain <- itemFeaturesStandardized[ train[ , 1 ], ]
++ 		itemFeaturesBtrain <-itemFeaturesStandardized[ train[ , 2 ], ]
++ 		userIdsTrain <- train[ , 3 ]
++ 		ratingsTrain <- train[ , 4 ]
++ 
++ 		# We construct the problemInfo list
++ 
++ 		problemInfo <- list(itemFeaturesA = itemFeaturesAtrain, itemFeaturesB = itemFeaturesBtrain,
++ 			ratings = ratingsTrain, userFeatures = userFeatures[ userIdsTrain, ])
++ 
++ 		# We call the EP method
++ 
++ 		ret <- epBonilla(problemInfo)
++ 
++ 		# We store the kernel hyper-parameters
++ 
++ 		write.table(ret$problemInfo$lengthScaleUsers, "lengthScaleUsers.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$lengthScaleItems, "lengthScaleItems.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$noiseUsers, "noiseUsers.txt", col.names = F, row.names = F)
++ 		write.table(ret$problemInfo$noiseItems, "noiseItems.txt", col.names = F, row.names = F)
++ 
++ 		# We eavaluate the performance of the method on the test set
++ 
++ 		userIdsTest <- test[ , 3 ]
++ 		ratingsTest <- test[ , 4 ]
++ 		itemFeaturesAtest <- itemFeaturesStandardized[ test[ , 1 ], ]
++ 		itemFeaturesBtest <- itemFeaturesStandardized[ test[ , 2 ], ]
++ 
++ 		pred <- sign(predictBonilla(ret, userFeatures[ userIdsTest, ], itemFeaturesAtest, itemFeaturesBtest)$m)
++ 		error <- mean(pred != ratingsTest)
++ 		write.table(error, paste("results/error", j - 1, ".txt", sep = ""), col.names = F, row.names = F, append = T)
++ 
++ 		# We make predictions in the pool set
++ 
++ 		userIdsPool <- pool[ , 3 ]
++ 		itemFeaturesApool <- itemFeaturesStandardized[ pool[ , 1 ], ]
++ 		itemFeaturesBpool <- itemFeaturesStandardized[ pool[ , 2 ], ]
++ 
++ 		pred <- predictBonilla(ret, userFeatures[ userIdsPool, ], itemFeaturesApool, itemFeaturesBpool)
++ 
++ 		# We compute the bald score for each point in the pool set
++ 
++ 		prob <- pnorm(pred$m / sqrt(pred$v + 1))
++ 		firstTerm <- -(1 - prob) * log(1 - prob) - prob * log(prob)
++ 		C <- sqrt(pi * log(2)  / 2)
++ 		secondTerm <- C / (sqrt(pred$v) + C^2) * exp(-pred$m^2 / (2 * (pred$v + C^2)))
++ 
++ 		bald <- firstTerm - secondTerm
++ 
++ 		# For each user we select the point with highest bald score
++ 
++ 		pointsToInclude <- tapply(bald, userIdsPool, which.max) +
++ 			c(0, cumsum(tapply(bald, userIdsPool, length))[ 1 : (length(unique(userIdsPool)) - 1) ])
++ 
++ 		# We include these items in the train dataset and eliminate them from the pool set
++ 
++ 		train <- rbind(train, pool[ pointsToInclude, ])
++ 		pool <- pool[ -pointsToInclude, ]
++ 	}
++ }
+1 1.789084 
+2 0.4746209 
+3 0.2364876 
+4 0.1375698 
+5 0.08483952 
+6 0.05406413 
+7 0.03536277 
+8 0.02361205 
+9 0.01607443 
+10 0.01115747 
+11 0.00789623 
+12 0.005696194 
+13 0.004186232 
+14 0.003131774 
+15 0.002382668 
+16 0.001841504 
+17 0.001444203 
+18 0.001148 
+19 0.0009239354 
+
+ 0 New evidence: -289.7982 
+
+1 0.1713345 
+2 0.09164779 
+3 0.05112968 
+4 0.02963274 
+5 0.01777529 
+6 0.0110703 
+7 0.007234493 
+8 0.004913183 
+9 0.003422846 
+10 0.002440159 
+11 0.001776138 
+12 0.001317298 
+13 0.0009937139 
+
+ 1 New evidence: -284.9099 eps: 0.11 
+
+1 0.2195264 
+2 0.1391011 
+3 0.08413565 
+4 0.05014867 
+5 0.03001285 
+6 0.01822905 
+7 0.01130047 
+8 0.007168765 
+9 0.004657552 
+10 0.003098349 
+11 0.002108634 
+12 0.00154045 
+13 0.001185686 
+14 0.0009255717 
+
+ 2 New evidence: -279.793 eps: 0.121 
+
+1 0.199718 
+2 0.1224478 
+3 0.07313861 
+4 0.04349633 
+5 0.02612201 
+6 0.01597805 
+7 0.01000042 
+8 0.006417717 
+9 0.004224681 
+10 0.002851105 
+11 0.001970376 
+12 0.001392465 
+13 0.001004725 
+14 0.0007390253 
+
+ 3 New evidence: -276.2889 eps: 0.1331 
+
+1 0.1365594 
+2 0.07094344 
+3 0.03786313 
+4 0.02078012 
+5 0.01174217 
+6 0.006834036 
+7 0.00412175 
+8 0.002604459 
+9 0.001693325 
+10 0.001130439 
+11 0.000773318 
+
+ 4 New evidence: -272.9835 eps: 0.14641 
+
+1 0.1923811 
+2 0.1030414 
+3 0.05741295 
+4 0.03305174 
+5 0.01963373 
+6 0.01203105 
+7 0.007600093 
+8 0.004943448 
+9 0.003305425 
+10 0.002267728 
+11 0.001593161 
+12 0.001143879 
+13 0.0008377959 
+
+ 5 New evidence: -269.8312 eps: 0.161051 
+
+1 0.1644645 
+2 0.08446486 
+3 0.04587333 
+4 0.02602079 
+5 0.01535522 
+6 0.009408538 
+7 0.005974282 
+8 0.003922276 
+9 0.002655355 
+10 0.001848491 
+11 0.001319515 
+12 0.0009633303 
+
+ 6 New evidence: -268.0595 eps: 0.1771561 
+
+1 0.07506709 
+2 0.03832597 
+3 0.02024267 
+4 0.0111042 
+5 0.006334539 
+6 0.003756998 
+7 0.002313656 
+8 0.001476417 
+9 0.0009738497 
+
+ 7 New evidence: -267.0225 eps: 0.1948717 
+
+1 0.1086622 
+2 0.04646175 
+3 0.02248867 
+4 0.01183269 
+5 0.006626965 
+6 0.003901534 
+7 0.002409027 
+8 0.001691011 
+9 0.001224363 
+10 0.0009009765 
+
+ 8 New evidence: -266.1796 eps: 0.2143589 
+
+1 0.153449 
+2 0.08683093 
+3 0.04991603 
+4 0.02904445 
+5 0.0172706 
+6 0.01054071 
+7 0.006612528 
+8 0.004262967 
+9 0.002831236 
+10 0.001975228 
+11 0.001413347 
+12 0.001075067 
+13 0.000829692 
+
+ 9 New evidence: -265.7036 eps: 0.2357948 
+
+1 0.3995396 
+2 0.1346296 
+3 0.06086926 
+4 0.02975632 
+5 0.01553902 
+6 0.009644064 
+7 0.006416253 
+8 0.004417964 
+9 0.003128254 
+10 0.002267374 
+11 0.001676562 
+12 0.001261504 
+13 0.0009639979 
+
+ 10 New evidence: -265.5493 eps: 0.2593742 
+
+1 0.3240494 
+2 0.1984225 
+3 0.1319932 
+4 0.08504757 
+5 0.05432759 
+6 0.03489082 
+7 0.02270971 
+8 0.01504373 
+9 0.01016174 
+10 0.00700279 
+11 0.004921924 
+12 0.003542822 
+13 0.002749352 
+14 0.002158667 
+15 0.001713528 
+16 0.001374186 
+17 0.001112673 
+18 0.0009090686 
+
+ 11 New evidence: -266.4783 eps: 0.1296871 
+
+1 0.1117188 
+2 0.05199077 
+3 0.02566407 
+4 0.01344481 
+5 0.00743554 
+6 0.004314673 
+7 0.002612303 
+8 0.001642154 
+9 0.0010673 
+10 0.0007145969 
+
+ 12 New evidence: -264.5129 eps: 0.1426558 
+
+1 0.1481142 
+2 0.06739726 
+3 0.03267997 
+4 0.01688785 
+5 0.009241316 
+6 0.005317947 
+7 0.003198422 
+8 0.002000025 
+9 0.001344444 
+10 0.0009393912 
+
+ 13 New evidence: -262.465 eps: 0.1569214 
+
+1 0.1755135 
+2 0.07910488 
+3 0.03853105 
+4 0.0201668 
+5 0.01123129 
+6 0.00659455 
+7 0.004050772 
+8 0.002586614 
+9 0.001708112 
+10 0.001233208 
+11 0.0009192724 
+
+ 14 New evidence: -260.9856 eps: 0.1726136 
+
+1 0.08221282 
+2 0.03793543 
+3 0.01852433 
+4 0.009441449 
+5 0.005054137 
+6 0.003058902 
+7 0.001924288 
+8 0.001251478 
+9 0.00083791 
+
+ 15 New evidence: -260.2926 eps: 0.1898749 
+
+1 0.05670539 
+2 0.02542869 
+3 0.01311913 
+4 0.007389785 
+5 0.00440194 
+6 0.002743283 
+7 0.001774619 
+8 0.001184812 
+9 0.0008129029 
+
+ 16 New evidence: -259.7839 eps: 0.2088624 
+
+1 0.04780848 
+2 0.02151814 
+3 0.01008195 
+4 0.00511407 
+5 0.003106658 
+6 0.001976933 
+7 0.001300547 
+8 0.0008798356 
+
+ 17 New evidence: -259.3937 eps: 0.2297486 
+
+1 0.03273613 
+2 0.01554011 
+3 0.0084731 
+4 0.004967924 
+5 0.003076206 
+6 0.001987213 
+7 0.001328204 
+8 0.0009536703 
+
+ 18 New evidence: -259.0795 eps: 0.2527235 
+
+1 0.05445814 
+2 0.02662021 
+3 0.01351944 
+4 0.007133792 
+5 0.003911966 
+6 0.002229208 
+7 0.001319284 
+8 0.0008099745 
+
+ 19 New evidence: -258.8411 eps: 0.2779959 
+
+1 0.1419139 
+2 0.06051885 
+3 0.02916033 
+4 0.01533755 
+5 0.00864901 
+6 0.005167384 
+7 0.003241562 
+8 0.00211951 
+9 0.001460647 
+10 0.001062541 
+11 0.0007861949 
+
+ 20 New evidence: -258.7952 eps: 0.3057955 
+
+1 0.2222923 
+2 0.132371 
+3 0.07875561 
+4 0.04762841 
+5 0.02949917 
+6 0.01876782 
+7 0.0122736 
+8 0.008245459 
+9 0.005682714 
+10 0.0040109 
+11 0.002893707 
+12 0.002129977 
+13 0.001596693 
+14 0.001216946 
+15 0.0009416057 
+
+ 21 New evidence: -259.7136 eps: 0.1528977 
+
+1 0.1078015 
+2 0.05088483 
+3 0.02569258 
+4 0.01385669 
+5 0.007935249 
+6 0.004790061 
+7 0.003026108 
+8 0.001987873 
+9 0.001350355 
+10 0.0009441648 
+
+ 22 New evidence: -258.5714 eps: 0.1681875 
+
+1 0.1555738 
+2 0.06616981 
+3 0.03154941 
+4 0.01638326 
+5 0.009128816 
+6 0.00540205 
+7 0.003366443 
+8 0.00219308 
+9 0.00148387 
+10 0.001070283 
+11 0.0007871844 
+
+ 23 New evidence: -258.2557 eps: 0.1850062 
+
+1 0.08992809 
+2 0.04676445 
+3 0.02521335 
+4 0.01416464 
+5 0.008296812 
+6 0.005060395 
+7 0.003206292 
+8 0.002104177 
+9 0.001425658 
+10 0.0009939958 
+
+ 24 New evidence: -258.2061 eps: 0.2035069 
+
+1 0.1547918 
+2 0.06561364 
+3 0.03115418 
+4 0.01609033 
+5 0.008906297 
+6 0.005230965 
+7 0.003234014 
+8 0.002090047 
+9 0.001403304 
+10 0.0009893604 
+
+ 25 New evidence: -258.187 eps: 0.2238576 
+
+1 0.1790205 
+2 0.1024706 
+3 0.05922735 
+4 0.03507567 
+5 0.02139991 
+6 0.01347057 
+7 0.008744465 
+8 0.00584538 
+9 0.004015592 
+10 0.002828593 
+11 0.002038406 
+12 0.001499574 
+13 0.001123912 
+14 0.0008566405 
+
+ 26 New evidence: -258.5335 eps: 0.1119288 
+
+1 0.09938616 
+2 0.04442848 
+3 0.02174479 
+4 0.01146206 
+5 0.006446775 
+6 0.0038405 
+7 0.002406666 
+8 0.001576044 
+9 0.001071948 
+10 0.0007713544 
+
+ 27 New evidence: -257.9247 eps: 0.1231217 
+
+1 0.05382187 
+2 0.02496897 
+3 0.01258052 
+4 0.006787882 
+5 0.003886685 
+6 0.002344624 
+7 0.001480487 
+8 0.0009727844 
+
+ 28 New evidence: -257.8482 eps: 0.1354338 
+
+1 0.02435442 
+2 0.01184732 
+3 0.006062163 
+4 0.003260252 
+5 0.001839897 
+6 0.001087173 
+7 0.0006707275 
+
+ 29 New evidence: -257.7997 eps: 0.1489772 
+
+1 0.02403202 
+2 0.01145627 
+3 0.005881303 
+4 0.003217433 
+5 0.001861267 
+6 0.001131141 
+7 0.0007178764 
+
+ 30 New evidence: -257.7509 eps: 0.1638749 
+
+1 0.02390595 
+2 0.01165771 
+3 0.005978744 
+4 0.003222428 
+5 0.001822379 
+6 0.001078962 
+7 0.0006668767 
+
+ 31 New evidence: -257.7028 eps: 0.1802624 
+
+1 0.03353893 
+2 0.01582626 
+3 0.008056631 
+4 0.004375101 
+5 0.002514784 
+6 0.001520027 
+7 0.0009604114 
+
+ 32 New evidence: -257.6557 eps: 0.1982887 
+
+1 0.04779862 
+2 0.02395417 
+3 0.01257345 
+4 0.006921369 
+5 0.00399102 
+6 0.002405024 
+7 0.001509971 
+8 0.0009842441 
+
+ 33 New evidence: -257.622 eps: 0.2181175 
+
+1 0.09587768 
+2 0.04271521 
+3 0.02087192 
+4 0.01097591 
+5 0.006147163 
+6 0.00363845 
+7 0.00226085 
+8 0.001465883 
+9 0.0009862499 
+
+ 34 New evidence: -257.6308 eps: 0.1090588 
+
+> 

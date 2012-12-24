@@ -1,0 +1,112 @@
+\begin{thebibliography}{}
+
+\bibitem[Atteia et~al., 1994]{Atteia1994315}
+Atteia, O., Dubois, J.-P., and Webster, R. (1994).
+\newblock Geostatistical analysis of soil contamination in the swiss jura.
+\newblock {\em Environmental Pollution}, 86(3):315 -- 327.
+
+\bibitem[Birlutiu et~al., 2009]{birlutiu2009}
+Birlutiu, A., Groot, P., and Heskes, T. (2009).
+\newblock Multi-task preference learning with gaussian processes.
+\newblock In {\em Proceedings of the 17th European Symposium on Artificial
+  Neural Networks (ESANN)}, pages 123--128.
+
+\bibitem[Bishop, 2007]{Bishop2007}
+Bishop, C.~M. (2007).
+\newblock {\em Pattern Recognition and Machine Learning (Information Science
+  and Statistics)}.
+\newblock Springer.
+
+\bibitem[Bonilla et~al., 2010]{Bonilla2010}
+Bonilla, E.~V., Guo, S., and Sanner, S. (2010).
+\newblock Gaussian process preference elicitation.
+\newblock In {\em Advances in neural information processing systems}, pages
+  262--270.
+
+\bibitem[Freund et~al., 1997]{freund1997}
+Freund, Y., Seung, H., Shamir, E., and Tishby, N. (1997).
+\newblock Selective sampling using the query by committee algorithm.
+\newblock {\em Machine learning}, 28(2):133--168.
+
+\bibitem[Gredilla, 2010]{Lazaro2010}
+Gredilla, M.~L. (2010).
+\newblock {\em Sparse {Gaussian} Processes for Large-scale Machine Learning}.
+\newblock PhD thesis, Universidad Carlos III de Madrid.
+
+\bibitem[Hern\'andez-Lobato, 2010]{HernandezLobato2010}
+Hern\'andez-Lobato, J.~M. (2010).
+\newblock {\em Balancing Flexibility and Robustness in Machine Learning:
+  Semi-parametric Methods and Sparse Linear Models}.
+\newblock PhD thesis, Universidad Aut\'onoma de Madrid.
+
+\bibitem[Kamishima et~al., 2005]{Kamishima05}
+Kamishima, T., Kazawa, H., and Akaho, S. (2005).
+\newblock Supervised ordering - an empirical survey.
+\newblock In {\em Proceedings of the 5th IEEE International Conference on Data
+  Mining (ICDM 2005)}, pages 673--676.
+
+\bibitem[Lawrence et~al., 2002]{lawrence2002}
+Lawrence, N., Seeger, M., and Herbrich, R. (2002).
+\newblock Fast sparse gaussian process methods: The informative vector machine.
+\newblock {\em Advances in neural information processing systems}, 15:609--616.
+
+\bibitem[Minka, 2001]{Minka2001}
+Minka, T. (2001).
+\newblock {\em A family of algorithms for approximate Bayesian inference}.
+\newblock PhD thesis, Massachusetts Institute of Technology.
+
+\bibitem[Minka and Lafferty, 2002]{Minka2002}
+Minka, T. and Lafferty, J. (2002).
+\newblock Expectation-propagation for the generative aspect model.
+\newblock In {\em Proceedings of the 18th Conference on Uncertainty in
+  Artificial Intelligence}, pages 352--359.
+
+\bibitem[Naish-Guzman and Holden, 2007]{Guzman2007}
+Naish-Guzman, A. and Holden, S.~B. (2007).
+\newblock The generalized fitc approximation.
+\newblock In {\em Advances in Neural Information Processing Systems 20}.
+
+\bibitem[Raiko et~al., 2007]{raiko2007}
+Raiko, T., Ilin, A., and Juha, K. (2007).
+\newblock Principal component analysis for large scale problems with lots of
+  missing values.
+\newblock In Kok, J., Koronacki, J., Mantaras, R., Matwin, S., Mladenic, D.,
+  and Skowron, A., editors, {\em Machine Learning: ECML 2007}, volume 4701 of
+  {\em Lecture Notes in Computer Science}, pages 691--698. Springer Berlin /
+  Heidelberg.
+
+\bibitem[Sebastiani and Wynn, 2000]{sebastiani2000}
+Sebastiani, P. and Wynn, H. (2000).
+\newblock {Maximum entropy sampling and optimal Bayesian experimental design}.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 62(1):145--157.
+
+\bibitem[Snelson and Ghahramani, 2005]{snelson2006}
+Snelson, E. and Ghahramani, Z. (2005).
+\newblock Sparse gaussian processes using pseudo-inputs.
+\newblock In {\em Advances in Neural Information Processing Systems 18}.
+
+\bibitem[Stern et~al., 2009]{stern2009}
+Stern, D.~H., Herbrich, R., and Graepel, T. (2009).
+\newblock Matchbox: large scale online bayesian recommendations.
+\newblock In {\em Proceedings of the 18th international conference on World
+  wide web}, WWW '09, pages 111--120, New York, NY, USA. ACM.
+
+\bibitem[Tong and Koller, 2001]{tong2001}
+Tong, S. and Koller, D. (2001).
+\newblock Support vector machine active learning with applications to text
+  classification.
+\newblock {\em Journal of Machine Learning Research}, 2:45--66.
+
+\bibitem[van Gerven et~al., 2010]{gerven2010a}
+van Gerven, M., Cseke, B., de~Lange, F., and Heskes, T. (2010).
+\newblock Efficient {B}ayesian multivariate {fMRI} analysis using a sparsifying
+  spatio-temporal prior.
+\newblock {\em Neuroimage}, 50:150--161.
+
+\bibitem[Webstet et~al., 1994]{Webster1994}
+Webstet, R., Atteia, O., and Dubois, J.-P. (1994).
+\newblock Coregionalization of trace metals in the soil in the swiss jura.
+\newblock {\em European Journal of Soil Science}, 45(2):205--218.
+
+\end{thebibliography}

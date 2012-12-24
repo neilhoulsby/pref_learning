@@ -1,0 +1,40 @@
+\section{Conclusions \label{sec:conclusions}}
+
+We have proposed a multi-user model that combines collaborative filtering methods
+with GP binary preference modeling.
+Our approach extends probabilistic multi-user preference learning to allow both behavioral similarities 
+between users and their feature vectors to be exploited to make predictions.
+The proposed approach advances current work in that it can handle both the case when
+user features are present, and when they are not useful or non-existent.
+The model takes advantage of a new reformulation of preference learning as a particular case of binary classification with GPs,
+when a covariance function called the preference kernel is used.
+This reformulation significantly reduces the complexity of inference,
+allowing us to perform efficient inference. Importantly the complexity
+of our approach scales sub-linearly in the number of users, allowing 
+us to apply the model to larger datasets than the current state-of-the-art.
+We have also presented BALD,
+a new active learning strategy for binary classification models with GPs. The proposed multi-user model with BALD performs as well as, or better than single-user methods
+and existing approaches for multi-user preference learning on simulated and real-world data against single-user methods, whilst having significantly lower computational times.
+
+Although we have made advances in scalability for this class of probabilistic models, 
+one direction of future work is making this approach `web-scalable'.
+One potential application is for search clickthrough data,
+which can be interpreted as users making implicit preference judgements between the returned items \citep{joachims2005}.
+Applying this model to such a domain would require very few psudo-inputs in the FITC approximation,
+and hence they should be chosen wisely, rather than randomly.
+An active sampling approach, such as BALD would need to be developed for this purpose.
+
+Furthermore, our model is designed for the scenario when we have a full user feature vector, and none at all.
+However, if we are missing just part of the feature vector, we simply replace the
+missing elements with the empirical mean
+taken from the other users. 
+The problem of performing Gaussian process inference with partial inputs
+is still an open area of research becuase
+even if we have a distribution that captures our encertainty over the missing element,
+integrating this distribution against the GP likelihood is highly intractable.
+One approach for example is to integrate only the kernel against a prior over the missing element \citep{girard2003} which yields a new length scale.
+However, similar to simply using an empirical mean to replace the element this does not smoothly reduce to
+the case when we have no user features. Finding a solution to the missing input problem that satisfies this is 
+an interesting future direction.
+
+\textcolor{red}{And a final paragraph wrapping everything up?}

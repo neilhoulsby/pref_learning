@@ -1,0 +1,83 @@
+\section{Introduction}
+
+Preference learning is concerned with making inferences and predictions from data that consist of
+pairs of items and corresponding binary labels indicating item preferences.
+Preference data is becoming increasingly prolific, appearing in a large number of contexts, including medical assistive technologies \citep{birlutiu2009}, graphical design \citep{brochu2007} and online recommendation and decision making systems \citep{de2009}.
+Particularly with the advent of online retail and reccomendation, there has been a dramatic increase in the abundance of preference data, it has therefore become a rapidly growing subfield of Machine Learning and AI \citep{furnkranz2010}.
+
+A popular approach to modelling preference data assumes the existence of a latent function $f$ such that $f(\mathbf{x})$ gives the value of a particular item with feature vector $\x$. In particular, $f(\x_i)>f(\x_j)$ indicates that item $i$ is preferred to item $j$. Bayesian methods can be used to learn $f$, for example Chu \emph{et al.} model $f$ independently for each user as a draw from a Gaussian process (GP) prior and approximate the posterior distribution for this function using the Laplace approximation. Such an approach allows $f$ to come from a large class of continuous functions \citep{chu2005}.
+ 
+However, this approach models each individual independently and does not carry any information between multiple users. In many applications e.g. online reccomendation, preference data will be available for many individuals and we would like to leverage similarities between users' preferences behavior. 
+For example, one may discover that users' preferences for news articles can be summarized by their preferences
+towards latent themes such as sports, politics or technology. We may identify these common themes
+from the data across all users, and then at the individual level, only need to infer the user's relative interest in each of them.
+
+Recent work has tackled this multi-user preference learning scenario \citep{birlutiu2009, Bonilla2010}. 
+However, the current approaches to the multi-user case have some limitations.
+For example the work of Bonilla \emph{et al.} assumes that features are 
+available for each user, and that users with similar features have similar behavior,
+even if the observed preferences indicates otherwise.
+Birlutiu \emph{et al.} take an opposite approach, their model does not use any user features,
+but performs single-user learning, but tie information across users u
+with a hierarchical prior. 
+
+In summary, the current literature on probabilistic multi-user preference learning
+tackles one of two scenarios; when user features are available and they are useful
+for prediction, or when no features are available at all.
+Furthermore, these models both involve solving at least $U$ Gaussian process problems, 
+where $U$ is the number of users, this cost becomes prohibitive with even modest $U$.
+We propose a more general model that can incorporate user features, if they are available,
+but does not require them, or can ignore them if they are not useful for making predictions,
+falling back on `collaborative information'.
+We also show how to perform scalable inference with our model that can handle problems
+with large $U$.
+
+Our approach is based upon two components: firstly, supervised GP utility function learning, as in \citep{chu2005}, that uses the observed preference data from the users to learn their individual
+preference functions. Secondly, unsupervised dimensionality-reduction techniques from collaborative filtering \citep{koren2008,stern2009} are used to discover unobserved similarities in user behavior, such as the latent themes in news articles of sports, politics etc. These underlying themes allow similarities in user behavior to be discovered and exploited to assist when making predictions on new users. These predictions can be further augmented if user features are available. 
+
+This multi-user model is based on a connection between preference learning and binary classification with GP priors.
+We show that both problems are equivalent when the GP priors use a 
+covariance function called the \emph{preference kernel}. This connection simplifies the inference process
+and allows us to design more complex methods such as the proposed multi-user approach.
+For efficient approximate inference, we use a hybrid algorithm that combines
+expectation propagation and variational Bayes \citep{Minka2001,Attias1999}.
+
+Finally, in real scenarios, it is desirable to learn user preferences
+using the least data possible. For this purpose we present BALD (Bayesian active learning by disagreement),
+a new active learning strategy for binary classification problems with GP priors.
+Using the preference kernel this approach can be applied directly to our preference learning model.
+BALD is based on the information theoretic approach to active learning
+and makes less approximations than other alternative strategies also based on this approach.
+
+Our notation is summarized in Table \ref{fig:notation}. We review the single-user Gaussian process model for preference learning and describe our new approach using the preference kernel is Section \ref{sec:prefKernel}.  Our multi-user model is presented in Section \ref{sec:model}. In Section \ref{sec:active} we describe our active sampling approach (BALD) for learning the model from the least possible data. Our hybrid inference scheme is presented in Section \ref{sec:ep} and we compare our model and active learning scheme with other popular methods in Section \ref{sec:relatedWork}. In Section \ref{sec:experiments} the proposed model and BALD are evaluated in experiments on simulated and a number of real-world datasets, including sushi-preference, electoral, movie-rating and geological data . In these experiments, we are able to outperform single-task methods \citep{chu2005} and state-of-the-art methods for multi-user preference learning \citep{birlutiu2009,Bonilla2010}. We conclude the paper in Section \ref{sec:conclusions}.
+
+\begin{figure}[t]
+\begin{center}
+\begin{tabular}{l|l}
+ \bf{Symbol} & \bf{Meaning} \\ \hline
+ \hline
+ $I$ & Number of items. \\
+ $P$ & Total number of distinct pairs of items evaluated by all users. \\
+ $U$ & Number of users. \\ 
+ $M_u$ & Number of preference judgements made by user $u$. \\
+ $D$ & Number of shared latent functions. \\
+ $y$ & Preference label $\in\{0,1\}.$ \\
+ $z_{i,u}$ & Index for $i$-th item evaluated by user $u$. \\
+ $\List$ & List, of length $P$, of pairs of items evaluated by all users. \\
+ $\data$ &  All multi-user data $ \{\{z_{u,i},y_{u,i}\}_{i=1}^{M_u}\}_{u=1}^U $. \\
+ $\mathbf{x}$ & Item feature vector $\in\mathcal{X}$. \\
+ $\mathbf{u}$ & User feature vector $\in\mathcal{U}$. \\
+ $\mathbf{X}$ & Set of all feature vectors for the items. \\
+ $\mathbf{U}$ & Set of all feature vectors for the users. \\
+ $\g^{(\data)}$ & $U\times P$ matrix of user latent functions $g$. \\
+ $ $ & \hskip1cm Superscript $^{(\data)}$ denotes matrix only evaluated at observed datapoints. \\   
+ $\w$ & $U\times D$ matrix of user weights $w$. \\
+ $\h$ & $D\times P$ matrix of shared latent functions $h$. \\
+ $\mathbf{T}^{(\data)}$ & $U\times P$ `target' matrix of preference judgements. \\  
+ $\ent[\mathcal{P}(\x)]$ & Differential entropy: $-\int_{\mathcal{X}} \mathcal{P}(\x)\log \mathcal{P}(\x)d\x$.  \\
+ $\ent[\mathcal{P}(y|\x)]$ & Entropy of conditional distribution $\mathcal{P}(y|\x)$: $-\int_{\mathcal{Y}} \mathcal{P}(y|\x)\log \mathcal{P}(y|\x)dy$.  \\
+ $\mathrm{h}(q)$ & Binary entropy function: $-q\log q - (1-q)\log (1-q)$.  \\
+\end{tabular}
+\caption{Summary of key notation.}\label{fig:notation}
+\end{center}
+\end{figure}

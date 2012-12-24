@@ -1,0 +1,17 @@
+\section{Appendix}
+
+\subsection*{Taylor Expansion for Approximation  $\stackrel{2}{\approx}$}
+
+We perform a Taylor expansion on $ \ln \mathrm{h}[\Phi(x)]$ as follows:
+
+\begin{align}
+f(x) &= f(0) + \frac{f'(0)x}{1!} + \frac{f''(0)x^2}{2!} + \dots \nonumber \\
+f(x) &= \ln \mathrm{h}[\Phi(x)] \nonumber \\
+f'(x) &= -\frac{1}{\ln 2}\frac{\Phi'(x)}{\mathrm{h}[\Phi(x)]}\left[\ln\Phi(x) - \ln(1-\Phi(x))  \right] \nonumber \\ 
+f''(x) &= \frac{1}{\ln 2}\frac{\Phi'(x)^2}{\mathrm{h}[\Phi(x)]^2}\left[\ln\Phi(x) - \ln(1-\Phi(x))  \right]\nonumber\\
+& \qquad - \frac{1}{\ln 2}\frac{\Phi''(x)}{\mathrm{h}[\Phi(x)]}\left[\ln\Phi(x) - \ln(1-\Phi(x))  \right] \nonumber\\
+& \qquad - \frac{1}{\ln 2}\frac{\Phi'(x)^2}{\mathrm{h}[\Phi(x)]}\left[\frac{1}{\Phi(x)} + \frac{1}{(1-\Phi(x)})  \right] \nonumber\\
+\therefore \ln \mathrm{h}[\Phi(x)] \nonumber  &= 1 - \frac{1}{\pi\ln2}x^2 + \mathcal{O}(x^4)
+\end{align}
+
+Because the function is even, we can inspect that the $x^3$ term will be zero. Therefore, exponentiating, we make the approximation up to $\mathcal{O}(x^4)$: $$\ent[\Phi(x)]\stackrel{2}{\approx}\exp\left({-\frac{x^2}{\pi\ln2}}\right) $$

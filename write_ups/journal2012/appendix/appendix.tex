@@ -1,0 +1,18 @@
+\section{Appendix}
+
+\section{Taylor expansion on $\log \mathrm{h}[\Phi(x)]$}
+
+The function $ \log \mathrm{h}[\Phi(x)]$ can be approximated using
+\begin{align}
+f(x) &= f(0) + \frac{f'(0)x}{1!} + \frac{f''(0)x^2}{2!} + \dots \,,\nonumber \\
+f(x) &= \log \mathrm{h}[\Phi(x)] \,,\nonumber \\
+f'(x) &= -\frac{1}{\log 2}\frac{\Phi'(x)}{\mathrm{h}[\Phi(x)]}\left[\log\Phi(x) - \log(1-\Phi(x))  \right]\,, \nonumber \\ 
+f''(x) &= \frac{1}{\log 2}\frac{\Phi'(x)^2}{\mathrm{h}[\Phi(x)]^2}\left[\log\Phi(x) - \log(1-\Phi(x))  \right]
+- \frac{1}{\log 2}\frac{\Phi''(x)}{\mathrm{h}[\Phi(x)]}\left[\log\Phi(x) - \log(1-\Phi(x))  \right] - \nonumber\\
+& \quad \frac{1}{\log 2}\frac{\Phi'(x)^2}{\mathrm{h}[\Phi(x)]}\left[\frac{1}{\Phi(x)} + \frac{1}{(1-\Phi(x)})  \right]\,. \nonumber\\
+\therefore \log \mathrm{h}[\Phi(x)] \nonumber  &= 1 - \frac{1}{\pi\log2}x^2 + \mathcal{O}(x^4)\,.
+\end{align}
+Note that the $x^3$ term will be zero because the function is even. By exponentiating, we obtain
+\begin{align}
+\mathrm{h}[\Phi(x)] \approx \exp\left({-\frac{x^2}{\pi\log2}}\right)\,.
+\end{align}

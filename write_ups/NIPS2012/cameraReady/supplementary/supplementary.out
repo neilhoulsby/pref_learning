@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{The preference kernel}{}
+\BOOKMARK [1][-]{section.2}{Properties of the preference kernel}{}
+\BOOKMARK [1][-]{section.3}{Taylor expansion on logh[\(x\)]}{}
+\BOOKMARK [1][-]{section.4}{Expectation propagation and variational Bayes}{}
+\BOOKMARK [2][-]{subsection.4.1}{The EP predictive distribution}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{The EP update operations}{section.4}
+\BOOKMARK [2][-]{subsection.4.3}{The EP approximation of the model evidence}{section.4}
+\BOOKMARK [2][-]{subsection.4.4}{Sparse approximations to speed up computations}{section.4}
+\BOOKMARK [1][-]{section.5}{Performance of BALD on GP binary classification problems}{}
+\BOOKMARK [1][-]{section.6}{Detailed description of the analyzed datasets}{}
+\BOOKMARK [1][-]{section.7}{Model of Birlutiu et al.}{}
+\BOOKMARK [1][-]{section.8}{Model of Bonilla et al.}{}
+\BOOKMARK [1][-]{section.9}{Tuning the kernel lengthscale}{}
+\BOOKMARK [1][-]{section.10}{Complete figures for active learning on large datasets}{}

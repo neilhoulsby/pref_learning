@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: supplementary.aux
+The style file: apalike.bst
+Database file #1: bib/bibliog.bib
+Repeated entry---line 32 of file bib/bibliog.bib
+ : @article{bonilla2010
+ :                     ,
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "Bonilla2010"
+refers to entry "DBLP:conf/nips/2010", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/nips/2010"
+You've used 19 entries,
+            1935 wiz_defined-function locations,
+            595 strings with 7109 characters,
+and the built_in function-call counts, 8127 in all, are:
+= -- 809
+> -- 303
+< -- 16
++ -- 102
+- -- 98
+* -- 647
+:= -- 1358
+add.period$ -- 59
+call.type$ -- 19
+change.case$ -- 137
+chr.to.int$ -- 19
+cite$ -- 19
+duplicate$ -- 347
+empty$ -- 596
+format.name$ -- 127
+if$ -- 1659
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 17
+newline$ -- 98
+num.names$ -- 59
+pop$ -- 146
+preamble$ -- 1
+purify$ -- 141
+quote$ -- 0
+skip$ -- 259
+stack$ -- 0
+substring$ -- 579
+swap$ -- 75
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 112
+warning$ -- 0
+while$ -- 66
+width$ -- 0
+write$ -- 251
+(There were 2 error messages)

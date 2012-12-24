@@ -1,0 +1,44 @@
+\begin{thebibliography}{}
+
+\bibitem[Gredilla, 2010]{Lazaro2010}
+Gredilla, M.~L. (2010).
+\newblock {\em Sparse {Gaussian} Processes for Large-scale Machine Learning}.
+\newblock PhD thesis, Universidad Carlos III de Madrid.
+
+\bibitem[Minka, 2001]{Minka2001}
+Minka, T. (2001).
+\newblock {\em A family of algorithms for approximate Bayesian inference}.
+\newblock PhD thesis, MIT.
+
+\bibitem[Minka and Lafferty, 2002]{Minka2002}
+Minka, T. and Lafferty, J. (2002).
+\newblock Expectation-propagation for the generative aspect model.
+\newblock In {\em Proceedings of the Eighteenth conference on Uncertainty in
+  artificial intelligence}, pages 352--359.
+
+\bibitem[Naish-Guzman and Holden, 2007]{Guzman2007}
+Naish-Guzman, A. and Holden, S.~B. (2007).
+\newblock The generalized fitc approximation.
+\newblock In {\em Advances in Neural Information Processing Systems 20}.
+
+\bibitem[Raiko et~al., 2007]{raiko2007}
+Raiko, T., Ilin, A., and Juha, K. (2007).
+\newblock Principal component analysis for large scale problems with lots of
+  missing values.
+\newblock In Kok, J., Koronacki, J., Mantaras, R., Matwin, S., Mladenic, D.,
+  and Skowron, A., editors, {\em Machine Learning: ECML 2007}, volume 4701 of
+  {\em Lecture Notes in Computer Science}, pages 691--698. Springer Berlin /
+  Heidelberg.
+
+\bibitem[Snelson and Ghahramani, 2005]{snelson2006}
+Snelson, E. and Ghahramani, Z. (2005).
+\newblock Sparse gaussian processes using pseudo-inputs.
+\newblock In {\em Advances in Neural Information Processing Systems 18}.
+
+\bibitem[Stern et~al., 2009]{stern2009}
+Stern, D.~H., Herbrich, R., and Graepel, T. (2009).
+\newblock Matchbox: large scale online bayesian recommendations.
+\newblock In {\em Proceedings of the 18th international conference on World
+  wide web}, pages 111--120.
+
+\end{thebibliography}

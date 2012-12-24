@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: pref_learning_2012.aux
+The style file: apalike.bst
+Database file #1: bib/bibliog.bib
+Warning--I'm ignoring koren2008's extra "title" field
+--line 238 of file bib/bibliog.bib
+Warning--empty journal in girard2003
+You've used 38 entries,
+            1935 wiz_defined-function locations,
+            698 strings with 10061 characters,
+and the built_in function-call counts, 15981 in all, are:
+= -- 1587
+> -- 588
+< -- 34
++ -- 196
+- -- 192
+* -- 1271
+:= -- 2671
+add.period$ -- 115
+call.type$ -- 38
+change.case$ -- 277
+chr.to.int$ -- 38
+cite$ -- 39
+duplicate$ -- 678
+empty$ -- 1181
+format.name$ -- 250
+if$ -- 3248
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 37
+newline$ -- 192
+num.names$ -- 116
+pop$ -- 297
+preamble$ -- 1
+purify$ -- 283
+quote$ -- 0
+skip$ -- 505
+stack$ -- 0
+substring$ -- 1153
+swap$ -- 136
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 222
+warning$ -- 1
+while$ -- 132
+width$ -- 0
+write$ -- 489
+(There were 2 warnings)
